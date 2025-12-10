@@ -554,6 +554,11 @@
 
             .chat-sidebar {
                 position: static;
+                order: 2;
+            }
+
+            .chat-main {
+                order: 1;
             }
 
             .topic-list {
@@ -563,43 +568,198 @@
 
             .topic-btn {
                 width: auto;
+                padding: 0.5rem 0.75rem;
+                font-size: 0.8125rem;
+            }
+
+            .sidebar-title {
+                margin-top: 0;
             }
         }
 
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1.5rem;
+                gap: 1rem;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+                border-top: 1px solid var(--slate-200);
+            }
+
+            .nav-links.active {
+                display: flex;
             }
 
             .nav-toggle {
                 display: block;
             }
 
-            .chat-main {
-                height: 500px;
+            .nav-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
             }
+
+            .nav-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .nav-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+
+            .chat-main {
+                height: 450px;
+            }
+
+            .chat-section {
+                padding: 2rem 0;
+            }
+
+            .page-header {
+                padding: 6rem 0 2rem;
+            }
+
+            .page-header h1 {
+                font-size: 1.75rem;
+            }
+
+            .page-header p {
+                font-size: 1rem;
+            }
+
+            .message {
+                max-width: 95%;
+                padding: 0.875rem 1rem;
+                font-size: 0.875rem;
+            }
+
+            .chat-input {
+                padding: 0.75rem;
+                font-size: 1rem; /* Prevents zoom on iOS */
+            }
+
+            .chat-send {
+                padding: 0.75rem 1rem;
+            }
+
+            .chat-send svg {
+                display: none;
+            }
+
+            .vision-grid {
+                grid-template-columns: 1fr 1fr !important;
+                gap: 1rem;
+            }
+
+            .vision-card {
+                padding: 1.25rem;
+            }
+
+            .vision-card h3 {
+                font-size: 0.9375rem;
+            }
+
+            .vision-card p {
+                font-size: 0.8125rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .vision-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            .chat-sidebar {
+                padding: 1rem;
+            }
+
+            .sidebar-info {
+                display: none;
+            }
+        }
+
+        /* Accessibility: Focus states */
+        a:focus,
+        button:focus,
+        input:focus {
+            outline: 2px solid var(--bay-blue);
+            outline-offset: 2px;
+        }
+
+        /* Accessibility: Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Skip link for keyboard users */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--bay-blue);
+            color: white;
+            padding: 8px 16px;
+            z-index: 10000;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Screen reader only - visually hidden but accessible */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
         }
     </style>
 </head>
 <body>
+    <!-- Skip link for keyboard accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Navigation -->
-    <nav class="nav">
+    <nav class="nav" role="navigation" aria-label="Main navigation">
         <div class="container">
             <div class="nav-inner">
                 <a href="index.html" class="nav-brand">
                     <div class="nav-brand-icon">MD</div>
                     <div class="nav-brand-text">Maryland <span>OLP</span></div>
                 </a>
-                <ul class="nav-links">
-                    <li><a href="index.html#mission">Mission</a></li>
-                    <li><a href="index.html#data">Data</a></li>
-                    <li><a href="index.html#domains">Domains</a></li>
-                    <li><a href="index.html#standards">Standards</a></li>
-                    <li><a href="resources.html">Resources</a></li>
-                    <li><a href="ai-chat.html" class="active">AI Chat</a></li>
-                    <li><a href="index.html#contact" class="nav-cta">Get Involved</a></li>
+                <ul class="nav-links" id="nav-menu" role="menubar">
+                    <li role="none"><a href="index.html#mission" role="menuitem">Mission</a></li>
+                    <li role="none"><a href="index.html#data" role="menuitem">Data</a></li>
+                    <li role="none"><a href="index.html#domains" role="menuitem">Domains</a></li>
+                    <li role="none"><a href="index.html#standards" role="menuitem">Standards</a></li>
+                    <li role="none"><a href="resources.html" role="menuitem">Resources</a></li>
+                    <li role="none"><a href="ai-chat.html" class="active" role="menuitem" aria-current="page">AI Chat</a></li>
+                    <li role="none"><a href="index.html#contact" class="nav-cta" role="menuitem">Get Involved</a></li>
                 </ul>
-                <button class="nav-toggle" aria-label="Toggle navigation">
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -624,7 +784,7 @@
     </header>
 
     <!-- Chat Section -->
-    <section class="chat-section">
+    <section class="chat-section" id="main-content" role="main">
         <div class="container">
             <div class="chat-wrapper">
                 <!-- Sidebar -->
@@ -667,11 +827,12 @@
                     <div class="chat-messages" id="chatMessages">
                         <!-- Messages will be inserted here -->
                     </div>
-                    <div class="chat-input-area">
-                        <input type="text" class="chat-input" id="chatInput" placeholder="Type a question or click a topic..." />
-                        <button class="chat-send" id="chatSend">
+                    <div class="chat-input-area" role="search">
+                        <label for="chatInput" class="sr-only">Ask a question about Maryland OLP</label>
+                        <input type="text" class="chat-input" id="chatInput" placeholder="Type a question or click a topic..." aria-label="Chat message input" autocomplete="off" />
+                        <button class="chat-send" id="chatSend" aria-label="Send message">
                             Send
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                 <line x1="22" y1="2" x2="11" y2="13"/>
                                 <polygon points="22 2 15 22 11 13 2 9 22 2"/>
                             </svg>
@@ -993,6 +1154,36 @@
                 nav.classList.add('scrolled');
             } else {
                 nav.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile navigation toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        navToggle.addEventListener('click', () => {
+            const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+            navToggle.setAttribute('aria-expanded', !isExpanded);
+            navToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile nav when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.setAttribute('aria-expanded', 'false');
+                navToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Close mobile nav on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                navToggle.setAttribute('aria-expanded', 'false');
+                navToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                navToggle.focus();
             }
         });
 
