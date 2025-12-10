@@ -1,0 +1,1958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources | Maryland Environmental & Climate Literacy Initiative</title>
+    <meta name="description" content="Comprehensive resources for environmental literacy educators, students, and partners in Maryland. Curriculum, professional development, grants, climate education, and career pathways.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Maryland Flag inspired colors */
+            --md-gold: #EAAA00;
+            --md-red: #9D2235;
+            --md-black: #1a1a1a;
+            --md-white: #FFFFFF;
+            
+            /* Nature palette */
+            --bay-blue: #1e6091;
+            --bay-blue-dark: #154360;
+            --bay-blue-light: #5499c7;
+            --forest-green: #1d7a3e;
+            --forest-green-dark: #145a2d;
+            --forest-green-light: #27ae60;
+            --marsh-gold: #d4a017;
+            --sand: #f5e6d3;
+            --water-teal: #17a2b8;
+            
+            /* Neutrals */
+            --slate-900: #0f172a;
+            --slate-800: #1e293b;
+            --slate-700: #334155;
+            --slate-600: #475569;
+            --slate-500: #64748b;
+            --slate-400: #94a3b8;
+            --slate-300: #cbd5e1;
+            --slate-200: #e2e8f0;
+            --slate-100: #f1f5f9;
+            --slate-50: #f8fafc;
+            
+            /* Spacing */
+            --section-padding: clamp(4rem, 8vw, 8rem);
+            --container-width: 1280px;
+            
+            /* Transitions */
+            --transition-fast: 150ms ease;
+            --transition-base: 250ms ease;
+            --transition-slow: 400ms ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--slate-800);
+            background: var(--slate-50);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 clamp(1rem, 4vw, 2rem);
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all var(--transition-base);
+        }
+
+        .nav.scrolled {
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--slate-900);
+        }
+
+        .nav-brand-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--md-gold), var(--md-red));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: white;
+            font-size: 0.875rem;
+        }
+
+        .nav-brand-text {
+            font-weight: 700;
+            font-size: 1.125rem;
+            letter-spacing: -0.025em;
+        }
+
+        .nav-brand-text span {
+            color: var(--bay-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--slate-600);
+            font-weight: 500;
+            font-size: 0.9375rem;
+            transition: color var(--transition-fast);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--bay-blue);
+        }
+
+        .nav-cta {
+            background: var(--bay-blue);
+            color: white !important;
+            padding: 0.625rem 1.25rem;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .nav-cta:hover {
+            background: var(--bay-blue-dark);
+            color: white !important;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .nav-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--slate-700);
+            margin: 5px 0;
+            transition: all var(--transition-fast);
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 10rem 0 4rem;
+            background: linear-gradient(135deg, var(--bay-blue-dark) 0%, var(--bay-blue) 50%, var(--forest-green) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+        }
+
+        .page-header-shapes {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .page-header-shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+        }
+
+        .page-header-shape-1 {
+            width: 400px;
+            height: 400px;
+            background: var(--md-gold);
+            top: -100px;
+            right: 10%;
+        }
+
+        .page-header-shape-2 {
+            width: 300px;
+            height: 300px;
+            background: var(--forest-green-light);
+            bottom: -50px;
+            left: 5%;
+        }
+
+        .page-header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+        }
+
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        .breadcrumb a:hover {
+            color: white;
+        }
+
+        .breadcrumb span {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .breadcrumb-current {
+            color: white;
+        }
+
+        .page-header h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+        }
+
+        /* Filter Tabs */
+        .filter-section {
+            background: white;
+            border-bottom: 1px solid var(--slate-200);
+            position: sticky;
+            top: 76px;
+            z-index: 100;
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: 0.5rem;
+            padding: 1rem 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .filter-tab {
+            padding: 0.625rem 1.25rem;
+            border-radius: 100px;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            color: var(--slate-600);
+            background: var(--slate-100);
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all var(--transition-fast);
+        }
+
+        .filter-tab:hover {
+            background: var(--slate-200);
+            color: var(--slate-800);
+        }
+
+        .filter-tab.active {
+            background: var(--bay-blue);
+            color: white;
+        }
+
+        /* Resources Grid */
+        .resources-section {
+            padding: 4rem 0;
+        }
+
+        .resources-category {
+            margin-bottom: 4rem;
+        }
+
+        .resources-category:last-child {
+            margin-bottom: 0;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--slate-200);
+        }
+
+        .category-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .category-icon svg {
+            width: 28px;
+            height: 28px;
+            color: white;
+        }
+
+        .category-header h2 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--slate-900);
+        }
+
+        .category-header p {
+            font-size: 0.9375rem;
+            color: var(--slate-500);
+            margin-top: 0.25rem;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .resource-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.75rem;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            border: 1px solid var(--slate-200);
+            transition: all var(--transition-base);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+            border-color: var(--bay-blue-light);
+        }
+
+        .resource-card-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .resource-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .resource-icon svg {
+            width: 22px;
+            height: 22px;
+            color: white;
+        }
+
+        .resource-card h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--slate-900);
+            line-height: 1.4;
+        }
+
+        .resource-card-body {
+            flex: 1;
+        }
+
+        .resource-card-body p {
+            font-size: 0.9375rem;
+            color: var(--slate-600);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .resource-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .resource-tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.625rem;
+            border-radius: 100px;
+            background: var(--slate-100);
+            color: var(--slate-600);
+        }
+
+        .resource-tag.official {
+            background: rgba(30, 96, 145, 0.1);
+            color: var(--bay-blue);
+        }
+
+        .resource-tag.free {
+            background: rgba(29, 122, 62, 0.1);
+            color: var(--forest-green);
+        }
+
+        .resource-tag.grant {
+            background: rgba(234, 170, 0, 0.15);
+            color: var(--marsh-gold);
+        }
+
+        .resource-tag.pd {
+            background: rgba(157, 34, 53, 0.1);
+            color: var(--md-red);
+        }
+
+        .resource-card-footer {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--slate-100);
+            margin-top: auto;
+        }
+
+        .resource-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--bay-blue);
+            text-decoration: none;
+            transition: all var(--transition-fast);
+        }
+
+        .resource-link:hover {
+            color: var(--bay-blue-dark);
+            gap: 0.75rem;
+        }
+
+        .resource-link svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .resource-source {
+            font-size: 0.8125rem;
+            color: var(--slate-400);
+            margin-left: auto;
+        }
+
+        /* Featured Resource */
+        .featured-resource {
+            background: linear-gradient(135deg, var(--bay-blue-dark), var(--forest-green-dark));
+            border-radius: 24px;
+            padding: 3rem;
+            margin-bottom: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-resource::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(234, 170, 0, 0.2) 0%, transparent 70%);
+            top: -100px;
+            right: -100px;
+        }
+
+        .featured-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            color: white;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .featured-badge svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .featured-resource h2 {
+            color: white;
+            font-size: clamp(1.75rem, 3vw, 2.25rem);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .featured-resource > p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.125rem;
+            max-width: 700px;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .featured-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            position: relative;
+        }
+
+        .featured-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            text-decoration: none;
+            transition: all var(--transition-base);
+        }
+
+        .featured-link.primary {
+            background: white;
+            color: var(--bay-blue-dark);
+        }
+
+        .featured-link.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .featured-link.secondary {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .featured-link.secondary:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .featured-link svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Quick Links Sidebar */
+        .page-layout {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 3rem;
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 140px;
+            height: fit-content;
+        }
+
+        .sidebar-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            border: 1px solid var(--slate-200);
+            margin-bottom: 1.5rem;
+        }
+
+        .sidebar-card h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--slate-900);
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--slate-100);
+        }
+
+        .sidebar-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.625rem;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--slate-600);
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all var(--transition-fast);
+        }
+
+        .sidebar-link:hover {
+            background: var(--slate-50);
+            color: var(--bay-blue);
+        }
+
+        .sidebar-link svg {
+            width: 18px;
+            height: 18px;
+            color: var(--slate-400);
+        }
+
+        .sidebar-link:hover svg {
+            color: var(--bay-blue);
+        }
+
+        .sidebar-cta {
+            background: linear-gradient(135deg, var(--md-gold), var(--marsh-gold));
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .sidebar-cta h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--slate-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar-cta p {
+            font-size: 0.875rem;
+            color: var(--slate-700);
+            margin-bottom: 1rem;
+        }
+
+        .sidebar-cta a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1.25rem;
+            background: var(--slate-900);
+            color: white;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all var(--transition-fast);
+        }
+
+        .sidebar-cta a:hover {
+            background: var(--slate-800);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--slate-900);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-brand h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand h3 span {
+            color: var(--bay-blue-light);
+        }
+
+        .footer-brand p {
+            font-size: 0.9375rem;
+            color: var(--slate-400);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: var(--slate-800);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--slate-400);
+            transition: all var(--transition-fast);
+        }
+
+        .footer-social a:hover {
+            background: var(--bay-blue);
+            color: white;
+        }
+
+        .footer-col h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--slate-400);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-col a {
+            color: var(--slate-300);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            transition: color var(--transition-fast);
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--slate-800);
+        }
+
+        .footer-bottom p {
+            font-size: 0.875rem;
+            color: var(--slate-500);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            font-size: 0.875rem;
+            color: var(--slate-500);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .page-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: none;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .resources-grid {
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1.5rem;
+                gap: 1rem;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-resource {
+                padding: 2rem;
+            }
+
+            .featured-links {
+                flex-direction: column;
+            }
+
+            .featured-link {
+                justify-content: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .resource-card {
+            animation: fadeInUp 0.4s ease forwards;
+            opacity: 0;
+        }
+
+        .resource-card:nth-child(1) { animation-delay: 0.05s; }
+        .resource-card:nth-child(2) { animation-delay: 0.1s; }
+        .resource-card:nth-child(3) { animation-delay: 0.15s; }
+        .resource-card:nth-child(4) { animation-delay: 0.2s; }
+        .resource-card:nth-child(5) { animation-delay: 0.25s; }
+        .resource-card:nth-child(6) { animation-delay: 0.3s; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-inner">
+                <a href="index.html" class="nav-brand">
+                    <div class="nav-brand-icon">MD</div>
+                    <div class="nav-brand-text">Maryland <span>ELI</span></div>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html#mission">Mission</a></li>
+                    <li><a href="index.html#data">Data</a></li>
+                    <li><a href="index.html#domains">Domains</a></li>
+                    <li><a href="index.html#standards">Standards</a></li>
+                    <li><a href="resources.html" class="active">Resources</a></li>
+                    <li><a href="#contact" class="nav-cta">Get Involved</a></li>
+                </ul>
+                <button class="nav-toggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="page-header-shapes">
+            <div class="page-header-shape page-header-shape-1"></div>
+            <div class="page-header-shape page-header-shape-2"></div>
+        </div>
+        <div class="container">
+            <div class="page-header-content">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span>›</span>
+                    <span class="breadcrumb-current">Resources</span>
+                </nav>
+                <h1>Resource Library</h1>
+                <p>Comprehensive tools, curriculum, professional development, and funding opportunities to support environmental and climate literacy across Maryland.</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Filter Tabs -->
+    <div class="filter-section">
+        <div class="container">
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">All Resources</button>
+                <button class="filter-tab" data-filter="climate">Climate Education</button>
+                <button class="filter-tab" data-filter="curriculum">Curriculum & Standards</button>
+                <button class="filter-tab" data-filter="pd">Professional Development</button>
+                <button class="filter-tab" data-filter="funding">Funding & Grants</button>
+                <button class="filter-tab" data-filter="careers">Career Pathways</button>
+                <button class="filter-tab" data-filter="data">Data & Research</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="resources-section">
+        <div class="container">
+            <!-- Featured Resource -->
+            <div class="featured-resource">
+                <span class="featured-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                    </svg>
+                    Featured Resource
+                </span>
+                <h2>Youth Climate Literacy: A 2025 National Snapshot</h2>
+                <p>New research from Planet Ed reveals critical insights into teenage climate knowledge and misconceptions. Only 12% of teens feel they know "a lot" about climate change causes, and just 10% understand solutions well. This report provides essential data for educators working to improve climate literacy.</p>
+                <div class="featured-links">
+                    <a href="https://www.thisisplaneted.org/resources/youth-climate-literacy-a-2025-national-snapshot" target="_blank" class="featured-link primary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                        </svg>
+                        Read the Report
+                    </a>
+                    <a href="https://www.thisisplaneted.org/img/2025YouthClimateLiteracy-Snapshot.pdf" target="_blank" class="featured-link secondary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        Download PDF
+                    </a>
+                </div>
+            </div>
+
+            <div class="page-layout">
+                <div class="main-content">
+                    <!-- Climate Education -->
+                    <div class="resources-category" data-category="climate">
+                        <div class="category-header">
+                            <div class="category-icon" style="background: linear-gradient(135deg, var(--water-teal), #48d1cc);">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="2" y1="12" x2="22" y2="12"/>
+                                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h2>Climate Education</h2>
+                                <p>Resources for teaching climate science, impacts, solutions, and mental health</p>
+                            </div>
+                        </div>
+                        <div class="resources-grid">
+                            <div class="resource-card">
+                                <div class="resource-card-header">
+                                    <div class="resource-icon" style="background: linear-gradient(135deg, var(--bay-blue), var(--bay-blue-light));">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                        </svg>
+                                    </div>
+                                    <h3>Maryland DNR Climate Education</h3>
+                                </div>
+                                <div class="resource-card-body">
+                                    <p>Comprehensive climate education resources from Maryland Department of Natural Resources including communication training, strategic framing workshops, and vetted teaching resources.</p>
+                                    <div class="resource-tags">
+                                        <span class="resource-tag official">Official</span>
+                                        <span class="resource-tag free">Free</span>
+                                        <span class="resource-tag pd">Prof. Dev.</span>
+                                    </div>
+                                </div>
+                                <div class="resource-card-footer">
+                                    <a href="https://dnr.maryland.gov/climateresilience/Pages/Climate-Education.aspx" target="_blank" class="resource-link">
+                                        Visit Resource
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                            <polyline points="15 3 21 3 21 9"/>
+                                            <line x1="10" y1="14" x2="21" y2="3"/>
+                                        </svg>
+                                    </a>
+                                    <span class="resource-source">MD DNR</span>
+                                </div>
+                            </div>
+
+                            <div class="resource-card">
+                                <div class="resource-card-header">
+                                    <div class="resource-icon" style="background: linear-gradient(135deg, var(--forest-green), var(--forest-green-light));">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                        </svg>
+                                    </div>
+                                    <h3>Climate Education Policy Toolkit</h3>
+                                </div>
+                                <div class="resource-card-body">
+                                    <p>NAAEE's comprehensive toolkit for advancing climate education policy at state and local levels. Includes advocacy strategies, policy templates, and implementation guides.</p>
+                                    <div class="resource-tags">
+                                        <span class="resource-tag">Policy</span>
+                                        <span class="resource-tag free">Free</span>
+                                    </div>
+                                </div>
+                                <div class="resource-card-footer">
+                                    <a href="https://eepro.naaee.org/climate-education-policy-toolkit" target="_blank" class="resource-link">
+                                        Visit Resource
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                            <polyline points="15 3 21 3 21 9"/>
+                                            <line x1="10" y1="14" x2="21" y2="3"/>
+                                        </svg>
+                                    </a>
+                                    <span class="resource-source">NAAEE</span>
+                                </div>
+                            </div>
+
+                            <div class="resource-card">
+                                <div class="resource-card-header">
+                                    <div class="resource-icon" style="background: linear-gradient(135deg, var(--md-gold), var(--marsh-gold));">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"/>
+                                            <line x1="12" y1="8" x2="12" y2="12"/>
+                                            <line x1="12" y1="16" x2="12.01" y2="16"/>
+                                        </svg>
+                                    </div>
+                                    <h3>Climate Literacy Guide</h3>
+                                </div>
+                                <div class="resource-card-body">
+                                    <p>Essential principles and fundamental concepts of climate science for educators. Provides the foundational knowledge needed for effective climate education.</p>
+                                    <div class="resource-tags">
+                                        <span class="resource-tag">Standards</span>
+                                        <span class="resource-tag free">Free</span>
+                                    </div>
+                                </div>
+                                <div class="resource-card-footer">
+                                    <a href="https://www.climateliteracy.earth/" target="_blank" class="resource-link">
+                                        Visit Resource
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                            <polyline points="15 3 21 3 21 9"/>
+                                            <line x1="10" y1="14" x2="21" y2="3"/>
+                                        </svg>
+                                    </a>
+                                    <span class="resource-source">Climate Literacy</span>
+                                </div>
+                            </div>
+
+                            <div class="resource-card">
+                                <div class="resource-card-header">
+                                    <div class="resource-icon" style="background: linear-gradient(135deg, var(--water-teal), #48d1cc);">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                            <line x1="3" y1="9" x2="21" y2="9"/>
+                                            <line x1="9" y1="21" x2="9" y2="9"/>
+                                        </svg>
+                                    </div>
+                                    <h3>En-ROADS Climate Solutions Simulator</h3>
+                                </div>
+                                <div class="resource-card-body">
+                                    <p>Interactive policy simulation tool for testing climate solutions. Perfect for classroom discussions about energy, transportation, land use, and carbon removal policies.</p>
+                                    <div class="resource-tags">
+                                        <span class="resource-tag">Interactive</span>
+                                        <span class="resource-tag free">Free</span>
+                                    </div>
+                                </div>
+                                <div class="resource-card-footer">
+                                    <a href="https://www.climateinteractive.org/en-roads/" target="_blank" class="resource-link">
+                                        Visit Resource
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                            <polyline points="15 3 21 3 21 9"/>
+                                            <line x1="10" y1="14" x2="21" y2="3"/>
+                                        </svg>
+                                    </a>
+                                    <span class="resource-source">Climate Interactive</span>
+                                </div>
+                            </div>
+
+                            <div class="resource-card">
+                                <div class="resource-card-header">
+                                    <div class="resource-icon" style="background: linear-gradient(135deg, var(--md-red), #c0392b);">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                        </svg>
+                                    </div>
+                                    <h3>Climate Emotions Toolkit for Educators</h3>
+                                </div>
+                                <div class="resource-card-body">
+                                    <p>Teacher-tested resources for addressing student climate anxiety and emotions. Includes the Climate Emotions Wheel and practical strategies for middle school educators.</p>
+                                    <div class="resource-tags">
+                                        <span class="resource-tag">Mental Health</span>
+                                        <span class="resource-tag free">Free</span>
+                                    </div>
+                                </div>
+                                <div class="resource-card-footer">
+                                    <a href="https://www.neefusa.org/what-we-do/health/climate-emotions-toolkit" target="_blank" class="resource-link">
+                                        Visit Resource
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                            <polyline points="15 3 21 3 21 9"/>
+                                            <line x1="10" y1="14" x2="21" y2="3"/>
+                                        </svg>
+                                    </a>
+                                    <span class="resource-source">NEEF</span>
+                                </div>
+                            </div>
+
+                            <div class="resource-card">
+                                <div class="resource-card-header">
+                                    <div class="resource-icon" style="background: linear-gradient(135deg, var(--forest-green), var(--forest-green-light));">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                                            <polyline points="2 17 12 22 22 17"/>
+                                            <polyline points="2 12 12 17 22 12"/>
+                                        </svg>
+                                    </div>
+                                    <h3>Project Drawdown</h3>
+                                </div>
+                                <div class="resource-card-body">
+                                    <p>The world's leading resource for climate solutions. Provides data-driven analysis of the most effective strategies for reducing emissions and achieving drawdown.</p>
+                                    <div class="resource-tags">
+                                        <span class="resource-tag">Solutions</span>
+                                        <span class="resource-tag free">Free</span>
+                                    </div>
+                                </div>
+                                <div class="resource-card-footer">
+                                    <a href="https://drawdown.org/" target="_blank" class="resource-link">
+                                        Visit Resource
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                            <polyline points="15 3 21 3 21 9"/>
+                                            <line x1="10" y1="14" x2="21" y2="3"/>
+                                        </svg>
+                                    </a>
+                                    <span class="resource-source">Drawdown</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Curriculum & Standards -->
+                    <div class="resources-category" data-category="curriculum">
+                        <div class="category-header">
+                            <div class="category-icon" style="background: linear-gradient(135deg, var(--bay-blue), var(--bay-blue-light));">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h2>Curriculum & Standards</h2>
+                                <p>Frameworks, lesson plans, and alignment tools for environmental literacy instruction</p>
+                            </div>
+                        </div>
+                        <div class="resources-grid">
+                            <div class="resource-card">
+                                <div class="resource-card-header">
+                                    <div class="resource-icon" style="background: linear-gradient(135deg, var(--bay-blue), var(--bay-blue-light));">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                                            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                                        </svg>
+                                    </div>
+                                    <h3>Bay Backpack - Maryland Resources</h3>
+                                </div>
+                                <div class="resource-card-body">
+                                    <p>Comprehensive hub for Maryland educators with funding opportunities, field studies, curriculum guides, and lesson plans for Meaningful Watershed Educational Experiences.</p>
+                                    <div class="resource-tags">
+                                        <span class="resource-tag official">Official</span>
+                                        <span class="resource-tag free">Free</span>
+                                        <span class="resource-tag">MWEE</span>
+                                    </div>
+                                </div>
+                                <div class="resource-card-footer">
+                                    <a href="https://www.baybackpack.com/state-initiatives/maryland" target="_blank" class="resource-link">
+                                        Visit Resource
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                            <polyline points="15 3 21 3 21 9"/>
+                                            <line x1="10" y1="14" x2="21" y2="3"/>
+                                        </svg>
+                                    </a>
+                                    <span class="resource-source">Bay Backpack</span>
+                                </div>
+                            </div>
+
+                            <div class="resource-card">
+                                <div class="resource-card-header">
+                                    <div class="resource-icon" style="background: linear-gradient(135deg, var(--forest-green), var(--forest-green-light));">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                            <polyline points="14 2 14 8 20 8"/>
+                                            <line x1="16" y1="13" x2="8" y2="13"/>
+                                            <line x1="16" y1="17" x2="8" y2="17"/>
+                                        </svg>
+                                    </div>
+                                    <h3>Environmental Literacy Model (ELM)</h3>
+                                </div>
+                                <div class="resource-card-body">
+                                    <p>Comprehensive planning document for designing and implementing MWEEs. Helps teachers integrate environmental literacy into curriculum scope and sequence.</p>
+                                    <div class="resource-tags">
+                                        <span class="resource-tag">Planning Tool</span>
+                                        <span class="resource-tag free">Free</span>
+                                    </div>
+                                </div>
+                                <div class="resource-card-footer">
+                                    <a href="https://www.cbf.org/join-us/education-program/mwee/index.html" target="_blank" class="resource-link">
+                                        Visit Resource
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                            <polyline points="15 3 21 3 21 9"/>
+                                            <line x1="10" y1="14" x2="21" y2="3"/>
+                                        </svg>
+                                    </a>
+                                    <span class="resource-source">CBF</span>
+                                </div>
+                            </div>
+
+                            <div class="resource-card">
+                                <div class="resource-card-header">
+                                    <div class="resource-icon" style="background: linear-gradient(135deg, var(--md-gold), var(--marsh-gold));">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <rect x="3" y="3" width="7" height="7"/>
+                                            <rect x="14" y="3" width="7" height="7"/>
+                                            <rect x="14" y="14" width="7" height="7"/>
+                                            <rect x="3" y="14" width="7" height="7"/>
+                                        </svg>
+                                    </div>
+                                    <h3>NAAEE Guidelines Crosswalk</h3>
+                                </div>
+                                <div class="resource-card-body">
+                                    <p>Crosswalk connecting Environmental Education Guidelines with Ocean Literacy, Climate Literacy, and Energy Literacy frameworks for comprehensive curriculum planning.</p>
+                                    <div class="resource-tags">
+                                        <span class="resource-tag">Standards</span>
+                                        <span class="resource-tag free">Free</span>
+                                    </div>
+                                </div>
+                                <div class="resource-card-footer">
+                                    <a href="https://eepro.naaee.org/resource/ee-guidelines-ocean-literacy-climate-literacy-energy-literacy-crosswalk" target="_blank" class="resource-link">
+                                        Visit Resource
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                            <polyline points="15 3 21 3 21 9"/>
+                                            <line x1="10" y1="14" x2="21" y2="3"/>
+                                        </svg>
+                                    </a>
+                                    <span class="resource-source">NAAEE</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Professional Development -->
+                    <div class="resources-category" data-category="pd">
+                        <div class="category-header">
+                            <div class="category-icon" style="background: linear-gradient(135deg, var(--forest-green), var(--forest-green-light));">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="9" cy="7" r="4"/>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h2>Professional Development</h2>
+                                <p>Training courses and workshops for educators and administrators</p>
+                            </div>
+                        </div>
+                        <div class="resources-grid">
+                            <div class="resource-card">
+                                <div class="resource-card-header">
+                                    <div class="resource-icon" style="background: linear-gradient(135deg, var(--forest-green), var(--forest-green-light));">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                                        </svg>
+                                    </div>
+                                    <h3>MAEOE Training Courses</h3>
+                                </div>
+                                <div class="resource-card-body">
+                                    <p>Maryland Association for Environmental and Outdoor Education offers MWEE 101, MWEE 201, and a 5-part outdoor learning training series with certificates of completion.</p>
+                                    <div class="resource-tags">
+                                        <span class="resource-tag pd">Prof. Dev.</span>
+                                        <span class="resource-tag">Certificate</span>
+                                    </div>
+                                </div>
+                                <div class="resource-card-footer">
+                                    <a href="https://www.maeoe.org/what-we-do/professional-development/courses-and-training/" target="_blank" class="resource-link">
+                                        Visit Resource
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                            <polyline points="15 3 21 3 21 9"/>
+                                            <line x1="10" y1="14" x2="21" y2="3"/>
+                                        </svg>
+                                    </a>
+                                    <span class="resource-source">MAEOE</span>
+                                </div>
+                            </div>
+
+                            <div class="resource-card">
+                                <div class="resource-card-header">
+                                    <div class="resource-icon" style="background: linear-gradient(135deg, var(--bay-blue), var(--bay-blue-light));">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                        </svg>
+                                    </div>
+                                    <h3>Chesapeake Classrooms</h3>
+                                </div>
+                                <div class="resource-card-body">
+                                    <p>Immersive summer professional learning programs from CBF. Multi-day field experiences modeling MWEEs with graduate credit options available.</p>
+                                    <div class="resource-tags">
+                                        <span class="resource-tag pd">Prof. Dev.</span>
+                                        <span class="resource-tag">Graduate Credit</span>
+                                    </div>
+                                </div>
+                                <div class="resource-card-footer">
+                                    <a href="https://www.cbf.org/join-us/education-program/professional-learning/chesapeake-classrooms.html" target="_blank" class="resource-link">
+                                        Visit Resource
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                            <polyline points="15 3 21 3 21 9"/>
+                                            <line x1="10" y1="14" x2="21" y2="3"/>
+                                        </svg>
+                                    </a>
+                                    <span class="resource-source">CBF</span>
+                                </div>
+                            </div>
+
+                            <div class="resource-card">
+                                <div class="resource-card-header">
+                                    <div class="resource-icon" style="background: linear-gradient(135deg, var(--water-teal), #48d1cc);">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"/>
+                                            <polyline points="12 6 12 12 16 14"/>
+                                        </svg>
+                                    </div>
+                                    <h3>Mid-Atlantic Climate Ed Conference</h3>
+                                </div>
+                                <div class="resource-card-body">
+                                    <p>Annual conference from MACCEC bringing together educators throughout the Mid-Atlantic to advance education for climate action. Held each June.</p>
+                                    <div class="resource-tags">
+                                        <span class="resource-tag">Conference</span>
+                                        <span class="resource-tag">Networking</span>
+                                    </div>
+                                </div>
+                                <div class="resource-card-footer">
+                                    <a href="https://www.maccec.org/" target="_blank" class="resource-link">
+                                        Visit Resource
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                            <polyline points="15 3 21 3 21 9"/>
+                                            <line x1="10" y1="14" x2="21" y2="3"/>
+                                        </svg>
+                                    </a>
+                                    <span class="resource-source">MACCEC</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Career Pathways -->
+                    <div class="resources-category" data-category="careers">
+                        <div class="category-header">
+                            <div class="category-icon" style="background: linear-gradient(135deg, var(--md-gold), var(--marsh-gold));">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h2>Career Pathways</h2>
+                                <p>Resources for conservation careers, green jobs, and youth leadership</p>
+                            </div>
+                        </div>
+                        <div class="resources-grid">
+                            <div class="resource-card">
+                                <div class="resource-card-header">
+                                    <div class="resource-icon" style="background: linear-gradient(135deg, var(--md-gold), var(--marsh-gold));">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                        </svg>
+                                    </div>
+                                    <h3>Maryland Conservation Careers Guide</h3>
+                                </div>
+                                <div class="resource-card-body">
+                                    <p>Comprehensive guide to conservation careers in Maryland from DNR. Includes career fields, education pathways, job application tips, and profiles of working professionals.</p>
+                                    <div class="resource-tags">
+                                        <span class="resource-tag official">Official</span>
+                                        <span class="resource-tag free">Free</span>
+                                        <span class="resource-tag">Careers</span>
+                                    </div>
+                                </div>
+                                <div class="resource-card-footer">
+                                    <a href="https://dnr.maryland.gov/pgc/Pages/Why-a-Conservation-Career.aspx" target="_blank" class="resource-link">
+                                        Visit Resource
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                            <polyline points="15 3 21 3 21 9"/>
+                                            <line x1="10" y1="14" x2="21" y2="3"/>
+                                        </svg>
+                                    </a>
+                                    <span class="resource-source">MD DNR</span>
+                                </div>
+                            </div>
+
+                            <div class="resource-card">
+                                <div class="resource-card-header">
+                                    <div class="resource-icon" style="background: linear-gradient(135deg, var(--forest-green), var(--forest-green-light));">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                            <circle cx="9" cy="7" r="4"/>
+                                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                        </svg>
+                                    </div>
+                                    <h3>Youth Climate Institute</h3>
+                                </div>
+                                <div class="resource-card-body">
+                                    <p>Organization certifying the next generation of leaders in climate science and environmental justice. Youth leadership development and certification programs.</p>
+                                    <div class="resource-tags">
+                                        <span class="resource-tag">Youth</span>
+                                        <span class="resource-tag">Leadership</span>
+                                    </div>
+                                </div>
+                                <div class="resource-card-footer">
+                                    <a href="https://youthclimateleader.org/" target="_blank" class="resource-link">
+                                        Visit Resource
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                            <polyline points="15 3 21 3 21 9"/>
+                                            <line x1="10" y1="14" x2="21" y2="3"/>
+                                        </svg>
+                                    </a>
+                                    <span class="resource-source">YCI</span>
+                                </div>
+                            </div>
+
+                            <div class="resource-card">
+                                <div class="resource-card-header">
+                                    <div class="resource-icon" style="background: linear-gradient(135deg, var(--bay-blue), var(--bay-blue-light));">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"/>
+                                            <line x1="2" y1="12" x2="22" y2="12"/>
+                                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                                        </svg>
+                                    </div>
+                                    <h3>Chesapeake Bay Diversity Workgroup</h3>
+                                </div>
+                                <div class="resource-card-body">
+                                    <p>Resources and organizations focused on diversity, equity, inclusion, and justice in the Chesapeake Bay environmental workforce. Building a more representative field.</p>
+                                    <div class="resource-tags">
+                                        <span class="resource-tag">DEIJ</span>
+                                        <span class="resource-tag free">Free</span>
+                                    </div>
+                                </div>
+                                <div class="resource-card-footer">
+                                    <a href="https://www.chesapeakebay.net/who/group/diversity-workgroup" target="_blank" class="resource-link">
+                                        Visit Resource
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                            <polyline points="15 3 21 3 21 9"/>
+                                            <line x1="10" y1="14" x2="21" y2="3"/>
+                                        </svg>
+                                    </a>
+                                    <span class="resource-source">CBP</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Funding & Grants -->
+                    <div class="resources-category" data-category="funding">
+                        <div class="category-header">
+                            <div class="category-icon" style="background: linear-gradient(135deg, var(--md-red), #c0392b);">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="1" x2="12" y2="23"/>
+                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h2>Funding & Grants</h2>
+                                <p>Financial resources to support environmental education programs</p>
+                            </div>
+                        </div>
+                        <div class="resources-grid">
+                            <div class="resource-card">
+                                <div class="resource-card-header">
+                                    <div class="resource-icon" style="background: linear-gradient(135deg, var(--md-red), #c0392b);">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <line x1="12" y1="1" x2="12" y2="23"/>
+                                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                        </svg>
+                                    </div>
+                                    <h3>Chesapeake Bay Trust Environmental Education Grants</h3>
+                                </div>
+                                <div class="resource-card-body">
+                                    <p>$290,000 available in FY26 for MWEE implementation. Track 1 offers up to $40,000/year for up to 3 years for systemic MWEE integration in school districts.</p>
+                                    <div class="resource-tags">
+                                        <span class="resource-tag grant">Grant</span>
+                                        <span class="resource-tag">Up to $120K</span>
+                                    </div>
+                                </div>
+                                <div class="resource-card-footer">
+                                    <a href="https://cbtrust.org/grants/environmental-education/" target="_blank" class="resource-link">
+                                        Visit Resource
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                            <polyline points="15 3 21 3 21 9"/>
+                                            <line x1="10" y1="14" x2="21" y2="3"/>
+                                        </svg>
+                                    </a>
+                                    <span class="resource-source">CB Trust</span>
+                                </div>
+                            </div>
+
+                            <div class="resource-card">
+                                <div class="resource-card-header">
+                                    <div class="resource-icon" style="background: linear-gradient(135deg, var(--bay-blue), var(--bay-blue-light));">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"/>
+                                            <line x1="2" y1="12" x2="22" y2="12"/>
+                                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                                        </svg>
+                                    </div>
+                                    <h3>NOAA B-WET Funding</h3>
+                                </div>
+                                <div class="resource-card-body">
+                                    <p>Bay Watershed Education and Training grants supporting meaningful watershed educational experiences in the Chesapeake Bay region. Federal funding for schools and partners.</p>
+                                    <div class="resource-tags">
+                                        <span class="resource-tag grant">Grant</span>
+                                        <span class="resource-tag">Federal</span>
+                                    </div>
+                                </div>
+                                <div class="resource-card-footer">
+                                    <a href="https://www.noaa.gov/office-education/bwet" target="_blank" class="resource-link">
+                                        Visit Resource
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                            <polyline points="15 3 21 3 21 9"/>
+                                            <line x1="10" y1="14" x2="21" y2="3"/>
+                                        </svg>
+                                    </a>
+                                    <span class="resource-source">NOAA</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data & Research -->
+                    <div class="resources-category" data-category="data">
+                        <div class="category-header">
+                            <div class="category-icon" style="background: linear-gradient(135deg, var(--slate-700), var(--slate-500));">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 21H4.6c-.56 0-.84 0-1.05-.11a1 1 0 0 1-.44-.44C3 20.24 3 19.96 3 19.4V3"/>
+                                    <path d="m7 14 4-4 4 4 6-6"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h2>Data & Research</h2>
+                                <p>Tools for tracking progress and accessing climate data</p>
+                            </div>
+                        </div>
+                        <div class="resources-grid">
+                            <div class="resource-card">
+                                <div class="resource-card-header">
+                                    <div class="resource-icon" style="background: linear-gradient(135deg, var(--bay-blue), var(--bay-blue-light));">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M21 21H4.6c-.56 0-.84 0-1.05-.11a1 1 0 0 1-.44-.44C3 20.24 3 19.96 3 19.4V3"/>
+                                            <path d="m7 14 4-4 4 4 6-6"/>
+                                        </svg>
+                                    </div>
+                                    <h3>Chesapeake Progress</h3>
+                                </div>
+                                <div class="resource-card-body">
+                                    <p>Track regional progress on Chesapeake Bay Watershed Agreement outcomes including student, planning, and sustainable schools metrics.</p>
+                                    <div class="resource-tags">
+                                        <span class="resource-tag official">Official</span>
+                                        <span class="resource-tag free">Free</span>
+                                    </div>
+                                </div>
+                                <div class="resource-card-footer">
+                                    <a href="https://www.chesapeakeprogress.com/" target="_blank" class="resource-link">
+                                        Visit Resource
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                            <polyline points="15 3 21 3 21 9"/>
+                                            <line x1="10" y1="14" x2="21" y2="3"/>
+                                        </svg>
+                                    </a>
+                                    <span class="resource-source">CBP</span>
+                                </div>
+                            </div>
+
+                            <div class="resource-card">
+                                <div class="resource-card-header">
+                                    <div class="resource-icon" style="background: linear-gradient(135deg, var(--forest-green), var(--forest-green-light));">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                            <line x1="3" y1="9" x2="21" y2="9"/>
+                                            <line x1="9" y1="21" x2="9" y2="9"/>
+                                        </svg>
+                                    </div>
+                                    <h3>NASA Climate Change Vital Signs</h3>
+                                </div>
+                                <div class="resource-card-body">
+                                    <p>Daily updates on climate data including global temperature, CO2 levels, ice sheets, and sea level. Essential classroom data source.</p>
+                                    <div class="resource-tags">
+                                        <span class="resource-tag">Data</span>
+                                        <span class="resource-tag free">Free</span>
+                                    </div>
+                                </div>
+                                <div class="resource-card-footer">
+                                    <a href="https://science.nasa.gov/climate-change/" target="_blank" class="resource-link">
+                                        Visit Resource
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                            <polyline points="15 3 21 3 21 9"/>
+                                            <line x1="10" y1="14" x2="21" y2="3"/>
+                                        </svg>
+                                    </a>
+                                    <span class="resource-source">NASA</span>
+                                </div>
+                            </div>
+
+                            <div class="resource-card">
+                                <div class="resource-card-header">
+                                    <div class="resource-icon" style="background: linear-gradient(135deg, var(--md-gold), var(--marsh-gold));">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"/>
+                                            <path d="M12 6v6l4 2"/>
+                                        </svg>
+                                    </div>
+                                    <h3>Yale Climate Opinion Maps</h3>
+                                </div>
+                                <div class="resource-card-body">
+                                    <p>Social science data on Americans' beliefs and attitudes about climate change. Explore public opinion at national, state, and local levels.</p>
+                                    <div class="resource-tags">
+                                        <span class="resource-tag">Research</span>
+                                        <span class="resource-tag free">Free</span>
+                                    </div>
+                                </div>
+                                <div class="resource-card-footer">
+                                    <a href="https://climatecommunication.yale.edu/visualizations-data/ycom-us/" target="_blank" class="resource-link">
+                                        Visit Resource
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                            <polyline points="15 3 21 3 21 9"/>
+                                            <line x1="10" y1="14" x2="21" y2="3"/>
+                                        </svg>
+                                    </a>
+                                    <span class="resource-source">Yale</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <div class="sidebar-card">
+                        <h3>Quick Links</h3>
+                        <div class="sidebar-links">
+                            <a href="https://marylandpublicschools.org" target="_blank" class="sidebar-link">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                    <polyline points="15 3 21 3 21 9"/>
+                                    <line x1="10" y1="14" x2="21" y2="3"/>
+                                </svg>
+                                MSDE Website
+                            </a>
+                            <a href="https://dnr.maryland.gov" target="_blank" class="sidebar-link">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                    <polyline points="15 3 21 3 21 9"/>
+                                    <line x1="10" y1="14" x2="21" y2="3"/>
+                                </svg>
+                                Maryland DNR
+                            </a>
+                            <a href="https://www.maeoe.org" target="_blank" class="sidebar-link">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                    <polyline points="15 3 21 3 21 9"/>
+                                    <line x1="10" y1="14" x2="21" y2="3"/>
+                                </svg>
+                                MAEOE
+                            </a>
+                            <a href="https://www.cbf.org" target="_blank" class="sidebar-link">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                    <polyline points="15 3 21 3 21 9"/>
+                                    <line x1="10" y1="14" x2="21" y2="3"/>
+                                </svg>
+                                Chesapeake Bay Foundation
+                            </a>
+                            <a href="https://www.baybackpack.com" target="_blank" class="sidebar-link">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                    <polyline points="15 3 21 3 21 9"/>
+                                    <line x1="10" y1="14" x2="21" y2="3"/>
+                                </svg>
+                                Bay Backpack
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3>Download Guides</h3>
+                        <div class="sidebar-links">
+                            <a href="https://dnr.maryland.gov/pgc/Documents/Maryland_Conservation_Careers_Guide.pdf" target="_blank" class="sidebar-link">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                    <polyline points="7 10 12 15 17 10"/>
+                                    <line x1="12" y1="15" x2="12" y2="3"/>
+                                </svg>
+                                Conservation Careers Guide
+                            </a>
+                            <a href="https://www.thisisplaneted.org/img/2025YouthClimateLiteracy-Snapshot.pdf" target="_blank" class="sidebar-link">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                    <polyline points="7 10 12 15 17 10"/>
+                                    <line x1="12" y1="15" x2="12" y2="3"/>
+                                </svg>
+                                Youth Climate Literacy Report
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-cta">
+                        <h4>Have a Resource to Share?</h4>
+                        <p>Help us expand this library with quality resources.</p>
+                        <a href="mailto:mdeli@maryland.gov">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            Submit Resource
+                        </a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>Maryland <span>ELI</span></h3>
+                    <p>
+                        The Maryland Environmental Literacy Initiative advances environmental education 
+                        for all students through partnerships, policy, and practice. First in the nation since 2011.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Twitter">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                                <rect x="2" y="9" width="4" height="12"/>
+                                <circle cx="4" cy="4" r="2"/>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
+                                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Initiative</h4>
+                    <ul>
+                        <li><a href="index.html#mission">Mission</a></li>
+                        <li><a href="index.html#data">Data Dashboard</a></li>
+                        <li><a href="index.html#domains">Focus Areas</a></li>
+                        <li><a href="index.html#standards">Standards</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="resources.html">All Resources</a></li>
+                        <li><a href="resources.html#climate">Climate Education</a></li>
+                        <li><a href="resources.html#careers">Career Pathways</a></li>
+                        <li><a href="resources.html#funding">Grants & Funding</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">Partners</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Maryland Environmental Literacy Initiative. Advancing climate education for all.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Accessibility</a>
+                    <a href="https://marylandpublicschools.org">MSDE</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation scroll effect
+        const nav = document.querySelector('.nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile navigation toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Filter functionality
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        const categories = document.querySelectorAll('.resources-category');
+
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Update active tab
+                filterTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                const filter = tab.dataset.filter;
+
+                // Show/hide categories
+                categories.forEach(category => {
+                    if (filter === 'all' || category.dataset.category === filter) {
+                        category.style.display = 'block';
+                        // Re-trigger animations
+                        category.querySelectorAll('.resource-card').forEach((card, i) => {
+                            card.style.animation = 'none';
+                            card.offsetHeight; // Trigger reflow
+                            card.style.animation = `fadeInUp 0.4s ease forwards ${i * 0.05}s`;
+                        });
+                    } else {
+                        category.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Console message
+        console.log('%c🌿 Maryland ELI Resources', 'font-size: 18px; font-weight: bold; color: #1e6091;');
+        console.log('%cComprehensive environmental literacy resources for Maryland educators', 'font-size: 12px; color: #1d7a3e;');
+    </script>
+</body>
+</html>
