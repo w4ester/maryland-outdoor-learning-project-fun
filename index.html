@@ -1,0 +1,2181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maryland Environmental & Climate Literacy Initiative | MD-ELI 2025</title>
+    <meta name="description" content="Maryland leads the nation as the first state requiring environmental literacy for graduation. Explore data, resources, and initiatives advancing climate education across all 24 school districts.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Maryland Flag inspired colors */
+            --md-gold: #EAAA00;
+            --md-red: #9D2235;
+            --md-black: #1a1a1a;
+            --md-white: #FFFFFF;
+            
+            /* Nature palette */
+            --bay-blue: #1e6091;
+            --bay-blue-dark: #154360;
+            --bay-blue-light: #5499c7;
+            --forest-green: #1d7a3e;
+            --forest-green-dark: #145a2d;
+            --forest-green-light: #27ae60;
+            --marsh-gold: #d4a017;
+            --sand: #f5e6d3;
+            --water-teal: #17a2b8;
+            
+            /* Neutrals */
+            --slate-900: #0f172a;
+            --slate-800: #1e293b;
+            --slate-700: #334155;
+            --slate-600: #475569;
+            --slate-500: #64748b;
+            --slate-400: #94a3b8;
+            --slate-300: #cbd5e1;
+            --slate-200: #e2e8f0;
+            --slate-100: #f1f5f9;
+            --slate-50: #f8fafc;
+            
+            /* Spacing */
+            --section-padding: clamp(4rem, 8vw, 8rem);
+            --container-width: 1280px;
+            
+            /* Transitions */
+            --transition-fast: 150ms ease;
+            --transition-base: 250ms ease;
+            --transition-slow: 400ms ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--slate-800);
+            background: var(--slate-50);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 clamp(1rem, 4vw, 2rem);
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all var(--transition-base);
+        }
+
+        .nav.scrolled {
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--slate-900);
+        }
+
+        .nav-brand-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--md-gold), var(--md-red));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: white;
+            font-size: 0.875rem;
+        }
+
+        .nav-brand-text {
+            font-weight: 700;
+            font-size: 1.125rem;
+            letter-spacing: -0.025em;
+        }
+
+        .nav-brand-text span {
+            color: var(--bay-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--slate-600);
+            font-weight: 500;
+            font-size: 0.9375rem;
+            transition: color var(--transition-fast);
+        }
+
+        .nav-links a:hover {
+            color: var(--bay-blue);
+        }
+
+        .nav-cta {
+            background: var(--bay-blue);
+            color: white !important;
+            padding: 0.625rem 1.25rem;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .nav-cta:hover {
+            background: var(--bay-blue-dark);
+            color: white !important;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .nav-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--slate-700);
+            margin: 5px 0;
+            transition: all var(--transition-fast);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(135deg, var(--bay-blue-dark) 0%, var(--bay-blue) 50%, var(--forest-green) 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+        }
+
+        .hero-bg-shapes {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .hero-shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+        }
+
+        .hero-shape-1 {
+            width: 600px;
+            height: 600px;
+            background: var(--md-gold);
+            top: -200px;
+            right: -100px;
+        }
+
+        .hero-shape-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--forest-green-light);
+            bottom: -100px;
+            left: -100px;
+        }
+
+        .hero-shape-3 {
+            width: 300px;
+            height: 300px;
+            background: var(--water-teal);
+            top: 50%;
+            left: 30%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding-top: 6rem;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            color: white;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-badge svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            color: white;
+            max-width: 900px;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-title .highlight {
+            background: linear-gradient(135deg, var(--md-gold), #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.125rem, 2vw, 1.375rem);
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 640px;
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+            line-height: 1.7;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 4rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all var(--transition-base);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--bay-blue-dark);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: white;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1.5rem;
+            max-width: 700px;
+        }
+
+        .hero-stat {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .hero-stat-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            line-height: 1;
+            margin-bottom: 0.25rem;
+        }
+
+        .hero-stat-label {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+        }
+
+        /* Announcement Bar */
+        .announcement {
+            background: linear-gradient(90deg, var(--md-gold), var(--marsh-gold));
+            padding: 0.75rem 0;
+            text-align: center;
+        }
+
+        .announcement-text {
+            font-size: 0.9375rem;
+            color: var(--slate-900);
+            font-weight: 500;
+        }
+
+        .announcement-text a {
+            color: var(--md-red);
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        /* Mission Section */
+        .mission {
+            padding: var(--section-padding) 0;
+            background: white;
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .mission-content h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--slate-900);
+            margin-bottom: 1.5rem;
+        }
+
+        .mission-content p {
+            font-size: 1.125rem;
+            color: var(--slate-600);
+            margin-bottom: 1.5rem;
+        }
+
+        .mission-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .mission-highlight {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .mission-highlight-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .mission-highlight-icon.gold {
+            background: linear-gradient(135deg, var(--md-gold), var(--marsh-gold));
+        }
+
+        .mission-highlight-icon.blue {
+            background: linear-gradient(135deg, var(--bay-blue), var(--bay-blue-light));
+        }
+
+        .mission-highlight-icon.green {
+            background: linear-gradient(135deg, var(--forest-green), var(--forest-green-light));
+        }
+
+        .mission-highlight-icon svg {
+            width: 24px;
+            height: 24px;
+            color: white;
+        }
+
+        .mission-highlight-text h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--slate-900);
+            margin-bottom: 0.25rem;
+        }
+
+        .mission-highlight-text p {
+            font-size: 0.9375rem;
+            color: var(--slate-500);
+            margin-bottom: 0;
+        }
+
+        .mission-visual {
+            position: relative;
+        }
+
+        .mission-card {
+            background: linear-gradient(135deg, var(--bay-blue), var(--forest-green));
+            border-radius: 24px;
+            padding: 3rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        }
+
+        .mission-card h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .mission-card p {
+            font-size: 1.0625rem;
+            opacity: 0.9;
+            position: relative;
+            line-height: 1.7;
+        }
+
+        .mission-card-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.375rem 0.875rem;
+            border-radius: 100px;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Data Dashboard Section */
+        .dashboard {
+            padding: var(--section-padding) 0;
+            background: var(--slate-900);
+            position: relative;
+        }
+
+        .dashboard::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.02;
+            pointer-events: none;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--bay-blue-light);
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .dashboard .section-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .dashboard .section-header p {
+            font-size: 1.125rem;
+            color: var(--slate-400);
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .dashboard-card {
+            background: var(--slate-800);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--slate-700);
+            transition: all var(--transition-base);
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--bay-blue);
+        }
+
+        .dashboard-card-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .dashboard-card-icon.gold {
+            background: linear-gradient(135deg, var(--md-gold), var(--marsh-gold));
+        }
+
+        .dashboard-card-icon.blue {
+            background: linear-gradient(135deg, var(--bay-blue), var(--bay-blue-light));
+        }
+
+        .dashboard-card-icon.green {
+            background: linear-gradient(135deg, var(--forest-green), var(--forest-green-light));
+        }
+
+        .dashboard-card-icon.red {
+            background: linear-gradient(135deg, var(--md-red), #c0392b);
+        }
+
+        .dashboard-card-icon svg {
+            width: 28px;
+            height: 28px;
+            color: white;
+        }
+
+        .dashboard-card-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: white;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .dashboard-card-label {
+            font-size: 0.9375rem;
+            color: var(--slate-400);
+            font-weight: 500;
+        }
+
+        .dashboard-card-trend {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 100px;
+        }
+
+        .dashboard-card-trend.up {
+            background: rgba(39, 174, 96, 0.2);
+            color: #27ae60;
+        }
+
+        .dashboard-card-trend.neutral {
+            background: rgba(234, 170, 0, 0.2);
+            color: var(--md-gold);
+        }
+
+        /* Progress Bars */
+        .progress-section {
+            background: var(--slate-800);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid var(--slate-700);
+        }
+
+        .progress-section h3 {
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .progress-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .progress-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-label {
+            font-size: 0.9375rem;
+            color: var(--slate-300);
+            font-weight: 500;
+        }
+
+        .progress-value {
+            font-size: 0.9375rem;
+            color: white;
+            font-weight: 600;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: var(--slate-700);
+            border-radius: 100px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 100px;
+            transition: width 1s ease;
+        }
+
+        .progress-fill.gold {
+            background: linear-gradient(90deg, var(--md-gold), var(--marsh-gold));
+        }
+
+        .progress-fill.blue {
+            background: linear-gradient(90deg, var(--bay-blue), var(--bay-blue-light));
+        }
+
+        .progress-fill.green {
+            background: linear-gradient(90deg, var(--forest-green), var(--forest-green-light));
+        }
+
+        /* Domains Section */
+        .domains {
+            padding: var(--section-padding) 0;
+            background: var(--slate-50);
+        }
+
+        .domains .section-badge {
+            background: var(--bay-blue-light);
+            color: white;
+        }
+
+        .domains .section-header h2 {
+            color: var(--slate-900);
+        }
+
+        .domains .section-header p {
+            color: var(--slate-600);
+        }
+
+        .domains-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
+        }
+
+        .domain-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--slate-200);
+            transition: all var(--transition-base);
+            cursor: pointer;
+        }
+
+        .domain-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+            border-color: var(--bay-blue-light);
+        }
+
+        .domain-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .domain-icon svg {
+            width: 36px;
+            height: 36px;
+            color: white;
+        }
+
+        .domain-card h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.0625rem;
+            font-weight: 600;
+            color: var(--slate-900);
+            margin-bottom: 0.75rem;
+        }
+
+        .domain-card p {
+            font-size: 0.875rem;
+            color: var(--slate-500);
+            line-height: 1.6;
+        }
+
+        /* Standards Section */
+        .standards {
+            padding: var(--section-padding) 0;
+            background: white;
+        }
+
+        .standards-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .standards-content h2 {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            color: var(--slate-900);
+            margin-bottom: 1.5rem;
+        }
+
+        .standards-content > p {
+            font-size: 1.125rem;
+            color: var(--slate-600);
+            margin-bottom: 2rem;
+        }
+
+        .standards-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .standard-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.25rem;
+            background: var(--slate-50);
+            border-radius: 12px;
+            transition: all var(--transition-base);
+        }
+
+        .standard-item:hover {
+            background: var(--bay-blue);
+            transform: translateX(8px);
+        }
+
+        .standard-item:hover .standard-num,
+        .standard-item:hover .standard-text {
+            color: white;
+        }
+
+        .standard-num {
+            width: 32px;
+            height: 32px;
+            background: var(--bay-blue);
+            color: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.875rem;
+            flex-shrink: 0;
+            transition: all var(--transition-base);
+        }
+
+        .standard-item:hover .standard-num {
+            background: white;
+            color: var(--bay-blue);
+        }
+
+        .standard-text {
+            font-size: 0.9375rem;
+            font-weight: 500;
+            color: var(--slate-700);
+            transition: color var(--transition-base);
+        }
+
+        .standards-visual {
+            position: sticky;
+            top: 100px;
+        }
+
+        .standards-image-card {
+            background: linear-gradient(135deg, var(--forest-green), var(--bay-blue));
+            border-radius: 24px;
+            padding: 3rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .standards-image-card::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+        }
+
+        .standards-image-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .standards-image-card p {
+            font-size: 1rem;
+            opacity: 0.9;
+            line-height: 1.7;
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .standards-quote {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            position: relative;
+        }
+
+        .standards-quote-icon {
+            font-size: 2rem;
+            line-height: 1;
+            opacity: 0.5;
+        }
+
+        .standards-quote blockquote {
+            font-style: italic;
+            font-size: 0.9375rem;
+            line-height: 1.6;
+        }
+
+        .standards-quote cite {
+            display: block;
+            font-style: normal;
+            font-size: 0.8125rem;
+            margin-top: 0.75rem;
+            opacity: 0.8;
+        }
+
+        /* Resources Section */
+        .resources {
+            padding: var(--section-padding) 0;
+            background: var(--slate-50);
+        }
+
+        .resources .section-badge {
+            background: var(--forest-green);
+            color: white;
+        }
+
+        .resources .section-header h2 {
+            color: var(--slate-900);
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .resource-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--slate-200);
+            transition: all var(--transition-base);
+        }
+
+        .resource-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .resource-card-header {
+            padding: 2rem 2rem 1.5rem;
+            position: relative;
+        }
+
+        .resource-card-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+        }
+
+        .resource-card-icon svg {
+            width: 28px;
+            height: 28px;
+            color: white;
+        }
+
+        .resource-card h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--slate-900);
+            margin-bottom: 0.75rem;
+        }
+
+        .resource-card-header p {
+            font-size: 0.9375rem;
+            color: var(--slate-500);
+            line-height: 1.6;
+        }
+
+        .resource-card-links {
+            padding: 0 2rem 2rem;
+        }
+
+        .resource-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            text-decoration: none;
+            color: var(--slate-600);
+            font-size: 0.9375rem;
+            font-weight: 500;
+            border-bottom: 1px solid var(--slate-100);
+            transition: all var(--transition-fast);
+        }
+
+        .resource-link:last-child {
+            border-bottom: none;
+        }
+
+        .resource-link:hover {
+            color: var(--bay-blue);
+            transform: translateX(4px);
+        }
+
+        .resource-link svg {
+            width: 18px;
+            height: 18px;
+            color: var(--slate-400);
+        }
+
+        /* Partners Section */
+        .partners {
+            padding: var(--section-padding) 0;
+            background: white;
+        }
+
+        .partners .section-header h2 {
+            color: var(--slate-900);
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .partner-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            background: var(--slate-50);
+            border-radius: 16px;
+            height: 100px;
+            transition: all var(--transition-base);
+        }
+
+        .partner-logo:hover {
+            background: var(--slate-100);
+            transform: scale(1.05);
+        }
+
+        .partner-logo span {
+            font-weight: 700;
+            font-size: 0.8125rem;
+            color: var(--slate-500);
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: var(--section-padding) 0;
+            background: linear-gradient(135deg, var(--bay-blue-dark), var(--forest-green-dark));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--md-gold) 0%, transparent 70%);
+            opacity: 0.15;
+            top: -200px;
+            right: -200px;
+        }
+
+        .cta-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 640px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .cta-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--slate-900);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-brand h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand h3 span {
+            color: var(--bay-blue-light);
+        }
+
+        .footer-brand p {
+            font-size: 0.9375rem;
+            color: var(--slate-400);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: var(--slate-800);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--slate-400);
+            transition: all var(--transition-fast);
+        }
+
+        .footer-social a:hover {
+            background: var(--bay-blue);
+            color: white;
+        }
+
+        .footer-col h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--slate-400);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-col a {
+            color: var(--slate-300);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            transition: color var(--transition-fast);
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--slate-800);
+        }
+
+        .footer-bottom p {
+            font-size: 0.875rem;
+            color: var(--slate-500);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            font-size: 0.875rem;
+            color: var(--slate-500);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .domains-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .mission-grid,
+            .standards-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .dashboard-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .domains-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .resources-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .partners-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1.5rem;
+                gap: 1rem;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .domains-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .partners-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .animate-delay-1 { animation-delay: 0.1s; }
+        .animate-delay-2 { animation-delay: 0.2s; }
+        .animate-delay-3 { animation-delay: 0.3s; }
+        .animate-delay-4 { animation-delay: 0.4s; }
+        .animate-delay-5 { animation-delay: 0.5s; }
+
+        /* Counter animation */
+        .count-up {
+            transition: all 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-inner">
+                <a href="#" class="nav-brand">
+                    <div class="nav-brand-icon">MD</div>
+                    <div class="nav-brand-text">Maryland <span>ELI</span></div>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#mission">Mission</a></li>
+                    <li><a href="#data">Data</a></li>
+                    <li><a href="#domains">Domains</a></li>
+                    <li><a href="#standards">Standards</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                    <li><a href="#contact" class="nav-cta">Get Involved</a></li>
+                </ul>
+                <button class="nav-toggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-bg-shapes">
+            <div class="hero-shape hero-shape-1"></div>
+            <div class="hero-shape hero-shape-2"></div>
+            <div class="hero-shape hero-shape-3"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge animate-in">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                    First in the Nation Since 2011
+                </div>
+                <h1 class="hero-title animate-in animate-delay-1">
+                    Cultivating <span class="highlight">Environmental Literacy</span> for Every Maryland Student
+                </h1>
+                <p class="hero-subtitle animate-in animate-delay-2">
+                    Maryland leads the nation as the first state requiring environmental literacy for graduation. 
+                    Explore our statewide data, resources, and initiatives advancing climate education across all 24 school districts.
+                </p>
+                <div class="hero-actions animate-in animate-delay-3">
+                    <a href="#data" class="btn btn-primary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                            <path d="M21 21H4.6c-.56 0-.84 0-1.05-.11a1 1 0 0 1-.44-.44C3 20.24 3 19.96 3 19.4V3"/>
+                            <path d="m7 14 4-4 4 4 6-6"/>
+                        </svg>
+                        Explore Data
+                    </a>
+                    <a href="#resources" class="btn btn-outline">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/>
+                        </svg>
+                        View Resources
+                    </a>
+                </div>
+                <div class="hero-stats animate-in animate-delay-4">
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">24</div>
+                        <div class="hero-stat-label">School Districts</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">664+</div>
+                        <div class="hero-stat-label">Green Schools</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">78%</div>
+                        <div class="hero-stat-label">Districts Prepared</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">14</div>
+                        <div class="hero-stat-label">Years Leading</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission" id="mission">
+        <div class="container">
+            <div class="mission-grid">
+                <div class="mission-content">
+                    <h2>Building a Climate-Ready Maryland Through Education</h2>
+                    <p>
+                        The Maryland Environmental Literacy Initiative (MD-ELI) works statewide to ensure all students 
+                        have access to high-quality environment-based learning that prepares them for civic life, 
+                        careers, and environmental stewardship.
+                    </p>
+                    <p>
+                        As stewards of the Chesapeake Bay—America's largest estuary—Maryland students gain the 
+                        knowledge and skills to act responsibly to protect and restore their local watershed.
+                    </p>
+                    <div class="mission-highlights">
+                        <div class="mission-highlight">
+                            <div class="mission-highlight-icon gold">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                            </div>
+                            <div class="mission-highlight-text">
+                                <h4>Graduation Requirement</h4>
+                                <p>First state to mandate environmental literacy for all graduates</p>
+                            </div>
+                        </div>
+                        <div class="mission-highlight">
+                            <div class="mission-highlight-icon blue">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="9" cy="7" r="4"/>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                </svg>
+                            </div>
+                            <div class="mission-highlight-text">
+                                <h4>Outdoor Learning Partnership</h4>
+                                <p>Governor Moore's 2024 initiative for climate-ready youth</p>
+                            </div>
+                        </div>
+                        <div class="mission-highlight">
+                            <div class="mission-highlight-icon green">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                </svg>
+                            </div>
+                            <div class="mission-highlight-text">
+                                <h4>Chesapeake Bay Agreement</h4>
+                                <p>Committed to regional watershed education goals</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mission-visual">
+                    <div class="mission-card">
+                        <span class="mission-card-badge">Est. 2011</span>
+                        <h3>Maryland's Vision</h3>
+                        <p>
+                            To enable students to make decisions and take actions that create and maintain an optimal 
+                            relationship between themselves and the environment, preserving and protecting the unique 
+                            natural resources of Maryland—particularly those of the Chesapeake Bay and its watershed.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Dashboard -->
+    <section class="dashboard" id="data">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">State Indicators</span>
+                <h2>Environmental Literacy Data Dashboard</h2>
+                <p>Track Maryland's progress on environmental literacy implementation across all school districts using the Environmental Literacy Indicator Tool (ELIT).</p>
+            </div>
+            
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <div class="dashboard-card-icon gold">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                        </svg>
+                    </div>
+                    <div class="dashboard-card-value count-up" data-target="24">0</div>
+                    <div class="dashboard-card-label">School Districts Reporting</div>
+                    <span class="dashboard-card-trend up">↑ 100% participation</span>
+                </div>
+                <div class="dashboard-card">
+                    <div class="dashboard-card-icon green">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22c4-4 8-7.582 8-12a8 8 0 1 0-16 0c0 4.418 4 8 8 12z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </div>
+                    <div class="dashboard-card-value count-up" data-target="664">0</div>
+                    <div class="dashboard-card-label">Maryland Green Schools</div>
+                    <span class="dashboard-card-trend up">↑ Growing network</span>
+                </div>
+                <div class="dashboard-card">
+                    <div class="dashboard-card-icon blue">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <div class="dashboard-card-value count-up" data-target="78">0</div>
+                    <div class="dashboard-card-label">% Well Prepared Districts</div>
+                    <span class="dashboard-card-trend up">↑ 2024 ELIT Survey</span>
+                </div>
+                <div class="dashboard-card">
+                    <div class="dashboard-card-icon red">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                    </div>
+                    <div class="dashboard-card-value count-up" data-target="14">0</div>
+                    <div class="dashboard-card-label">Years Since Mandate</div>
+                    <span class="dashboard-card-trend neutral">● Since 2011</span>
+                </div>
+            </div>
+
+            <div class="progress-section">
+                <h3>District Readiness by Category (2024 ELIT Survey)</h3>
+                <div class="progress-item">
+                    <div class="progress-header">
+                        <span class="progress-label">Districts "Well Prepared" for EL Implementation</span>
+                        <span class="progress-value">78%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill gold" style="width: 78%"></div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <div class="progress-header">
+                        <span class="progress-label">Districts "Somewhat Prepared"</span>
+                        <span class="progress-value">17%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill blue" style="width: 17%"></div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <div class="progress-header">
+                        <span class="progress-label">MWEE Implementation Rate (Goal: Every Student K-12)</span>
+                        <span class="progress-value">Growing</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill green" style="width: 65%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Domains Section -->
+    <section class="domains" id="domains">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Focus Areas</span>
+                <h2>Five Domains for Action</h2>
+                <p>Maryland's approach to environmental literacy is built on five interconnected domains that work together to ensure every student has access to high-quality environment-based learning.</p>
+            </div>
+            
+            <div class="domains-grid">
+                <div class="domain-card">
+                    <div class="domain-icon" style="background: linear-gradient(135deg, var(--bay-blue), var(--bay-blue-light));">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/>
+                        </svg>
+                    </div>
+                    <h3>Teaching & Learning</h3>
+                    <p>Integrating environmental literacy standards across all subjects K-12</p>
+                </div>
+                <div class="domain-card">
+                    <div class="domain-icon" style="background: linear-gradient(135deg, var(--forest-green), var(--forest-green-light));">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h3>Community Partnerships</h3>
+                    <p>Connecting schools with environmental organizations and local experts</p>
+                </div>
+                <div class="domain-card">
+                    <div class="domain-icon" style="background: linear-gradient(135deg, var(--md-gold), var(--marsh-gold));">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <h3>Policy & Advocacy</h3>
+                    <p>Advancing environmental education policy at local and state levels</p>
+                </div>
+                <div class="domain-card">
+                    <div class="domain-icon" style="background: linear-gradient(135deg, var(--water-teal), #48d1cc);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                    </div>
+                    <h3>Sustainable Schools</h3>
+                    <p>Building climate-ready, sustainable campuses across Maryland</p>
+                </div>
+                <div class="domain-card">
+                    <div class="domain-icon" style="background: linear-gradient(135deg, var(--md-red), #c0392b);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="1" x2="12" y2="23"/>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        </svg>
+                    </div>
+                    <h3>Sustainable Funding</h3>
+                    <p>Securing resources for long-term environmental education success</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Standards Section -->
+    <section class="standards" id="standards">
+        <div class="container">
+            <div class="standards-grid">
+                <div class="standards-content">
+                    <h2>Maryland Environmental Literacy Standards</h2>
+                    <p>
+                        The Maryland State Board of Education adopted Environmental Literacy Standards in 2011 and 
+                        revised them in 2020. These standards map out the elements all students must achieve to 
+                        graduate environmentally literate.
+                    </p>
+                    <div class="standards-list">
+                        <div class="standard-item">
+                            <span class="standard-num">1</span>
+                            <span class="standard-text">Environmental Issues – Analyze issues and take action</span>
+                        </div>
+                        <div class="standard-item">
+                            <span class="standard-num">2</span>
+                            <span class="standard-text">Interactions of Earth's Systems – Apply systems thinking</span>
+                        </div>
+                        <div class="standard-item">
+                            <span class="standard-num">3</span>
+                            <span class="standard-text">Flow of Matter and Energy – Understand cycles and flows</span>
+                        </div>
+                        <div class="standard-item">
+                            <span class="standard-num">4</span>
+                            <span class="standard-text">Populations, Communities & Ecosystems – Analyze interactions</span>
+                        </div>
+                        <div class="standard-item">
+                            <span class="standard-num">5</span>
+                            <span class="standard-text">Humans and Natural Resources – Examine resource use</span>
+                        </div>
+                        <div class="standard-item">
+                            <span class="standard-num">6</span>
+                            <span class="standard-text">Environment and Health – Connect environment to wellbeing</span>
+                        </div>
+                        <div class="standard-item">
+                            <span class="standard-num">7</span>
+                            <span class="standard-text">Environment and Society – Analyze social-environmental links</span>
+                        </div>
+                        <div class="standard-item">
+                            <span class="standard-num">8</span>
+                            <span class="standard-text">Sustainability – Make decisions for sustainable futures</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="standards-visual">
+                    <div class="standards-image-card">
+                        <h3>Meaningful Watershed Educational Experiences</h3>
+                        <p>
+                            MWEEs are the cornerstone of Maryland's environmental literacy approach—learner-centered 
+                            experiences that focus on investigations into local environmental issues and lead to informed action.
+                        </p>
+                        <div class="standards-quote">
+                            <span class="standards-quote-icon">"</span>
+                            <blockquote>
+                                Multiple exposure and experiences in nature have been shown to have a profound effect 
+                                on improving environmental literacy and student achievement in core subjects.
+                                <cite>— Maryland DNR CBNERR</cite>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="resources" id="resources">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Educator Tools</span>
+                <h2>Resources & Support</h2>
+                <p>Tools, curriculum, and professional development opportunities to support environmental literacy implementation across Maryland.</p>
+            </div>
+            
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-card-header">
+                        <div class="resource-card-icon" style="background: linear-gradient(135deg, var(--bay-blue), var(--bay-blue-light));">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/>
+                            </svg>
+                        </div>
+                        <h3>Curriculum & Standards</h3>
+                        <p>Frameworks, lesson plans, and alignment tools for environmental literacy instruction.</p>
+                    </div>
+                    <div class="resource-card-links">
+                        <a href="https://www.baybackpack.com/state-initiatives/maryland" class="resource-link" target="_blank">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            Bay Backpack Resources
+                        </a>
+                        <a href="#" class="resource-link">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                            EL Standards Framework (2023)
+                        </a>
+                        <a href="#" class="resource-link">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                            Environmental Literacy Model (ELM)
+                        </a>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-card-header">
+                        <div class="resource-card-icon" style="background: linear-gradient(135deg, var(--forest-green), var(--forest-green-light));">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <h3>Professional Development</h3>
+                        <p>Training opportunities for teachers and administrators in environmental education.</p>
+                    </div>
+                    <div class="resource-card-links">
+                        <a href="https://www.maeoe.org/what-we-do/professional-development/courses-and-training/" class="resource-link" target="_blank">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            MAEOE Training Courses
+                        </a>
+                        <a href="https://www.cbf.org/join-us/education-program/professional-learning/chesapeake-classrooms.html" class="resource-link" target="_blank">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            Chesapeake Classrooms
+                        </a>
+                        <a href="#" class="resource-link">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                            MWEE 101 & 201 Courses
+                        </a>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-card-header">
+                        <div class="resource-card-icon" style="background: linear-gradient(135deg, var(--md-gold), var(--marsh-gold));">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="1" x2="12" y2="23"/>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                            </svg>
+                        </div>
+                        <h3>Funding & Grants</h3>
+                        <p>Financial resources to support environmental education programs and MWEEs.</p>
+                    </div>
+                    <div class="resource-card-links">
+                        <a href="https://cbtrust.org/grants/environmental-education/" class="resource-link" target="_blank">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            Chesapeake Bay Trust Grants
+                        </a>
+                        <a href="#" class="resource-link">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                            NOAA B-WET Funding
+                        </a>
+                        <a href="#" class="resource-link">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                            Regional Grant Database
+                        </a>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-card-header">
+                        <div class="resource-card-icon" style="background: linear-gradient(135deg, var(--water-teal), #48d1cc);">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="2" y1="12" x2="22" y2="12"/>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                            </svg>
+                        </div>
+                        <h3>Climate Education</h3>
+                        <p>Resources for teaching about climate change science, impacts, and solutions.</p>
+                    </div>
+                    <div class="resource-card-links">
+                        <a href="https://dnr.maryland.gov/climateresilience/Pages/Climate-Education.aspx" class="resource-link" target="_blank">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            MD DNR Climate Education
+                        </a>
+                        <a href="https://www.climateliteracy.earth/" class="resource-link" target="_blank">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            Climate Literacy Guide
+                        </a>
+                        <a href="https://www.climateinteractive.org/en-roads/" class="resource-link" target="_blank">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            En-ROADS Simulator
+                        </a>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-card-header">
+                        <div class="resource-card-icon" style="background: linear-gradient(135deg, var(--forest-green), var(--forest-green-light));">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                        </div>
+                        <h3>Green Schools</h3>
+                        <p>Recognition programs and support for sustainable school practices.</p>
+                    </div>
+                    <div class="resource-card-links">
+                        <a href="https://www.maeoe.org/" class="resource-link" target="_blank">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            Maryland Green Schools Program
+                        </a>
+                        <a href="#" class="resource-link">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                            Green Ribbon Schools
+                        </a>
+                        <a href="https://www.pgcps.org/offices/board-of-education/climate-change-action-plan---workgroup" class="resource-link" target="_blank">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            PGCPS Climate Action Plan
+                        </a>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-card-header">
+                        <div class="resource-card-icon" style="background: linear-gradient(135deg, var(--md-red), #c0392b);">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="3" y1="9" x2="21" y2="9"/>
+                                <line x1="9" y1="21" x2="9" y2="9"/>
+                            </svg>
+                        </div>
+                        <h3>Data & Assessment</h3>
+                        <p>Tools for measuring and tracking environmental literacy progress.</p>
+                    </div>
+                    <div class="resource-card-links">
+                        <a href="https://www.chesapeakeprogress.com/" class="resource-link" target="_blank">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            Chesapeake Progress
+                        </a>
+                        <a href="#" class="resource-link">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                            ELIT Survey Results
+                        </a>
+                        <a href="#" class="resource-link">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                            District ELit Plans
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners" id="partners">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Partners</h2>
+                <p>Collaborating across sectors to advance environmental literacy for all Maryland students.</p>
+            </div>
+            <div class="partners-grid">
+                <div class="partner-logo">
+                    <span>Maryland State Department of Education</span>
+                </div>
+                <div class="partner-logo">
+                    <span>Maryland DNR</span>
+                </div>
+                <div class="partner-logo">
+                    <span>Chesapeake Bay Foundation</span>
+                </div>
+                <div class="partner-logo">
+                    <span>MAEOE</span>
+                </div>
+                <div class="partner-logo">
+                    <span>Chesapeake Bay Trust</span>
+                </div>
+                <div class="partner-logo">
+                    <span>NOAA B-WET</span>
+                </div>
+                <div class="partner-logo">
+                    <span>Outdoor Learning Partnership</span>
+                </div>
+                <div class="partner-logo">
+                    <span>CBNERR-MD</span>
+                </div>
+                <div class="partner-logo">
+                    <span>Mid-Atlantic Climate Ed Collaborative</span>
+                </div>
+                <div class="partner-logo">
+                    <span>Youth Climate Institute</span>
+                </div>
+                <div class="partner-logo">
+                    <span>Gen:Thrive / EcoRise</span>
+                </div>
+                <div class="partner-logo">
+                    <span>Chesapeake Bay Program</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Join Maryland's Environmental Literacy Movement</h2>
+                <p>
+                    Whether you're an educator, administrator, policymaker, or community partner, 
+                    there's a role for you in advancing environmental literacy for every Maryland student.
+                </p>
+                <div class="cta-actions">
+                    <a href="mailto:mdeli@maryland.gov" class="btn btn-primary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        Contact MD-ELI
+                    </a>
+                    <a href="#resources" class="btn btn-outline">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        Download Resources
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>Maryland <span>ELI</span></h3>
+                    <p>
+                        The Maryland Environmental Literacy Initiative advances environmental education 
+                        for all students through partnerships, policy, and practice. First in the nation since 2011.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Twitter">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                                <rect x="2" y="9" width="4" height="12"/>
+                                <circle cx="4" cy="4" r="2"/>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
+                                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Initiative</h4>
+                    <ul>
+                        <li><a href="#mission">Mission</a></li>
+                        <li><a href="#data">Data Dashboard</a></li>
+                        <li><a href="#domains">Focus Areas</a></li>
+                        <li><a href="#standards">Standards</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Curriculum</a></li>
+                        <li><a href="#">Professional Development</a></li>
+                        <li><a href="#">Grants & Funding</a></li>
+                        <li><a href="#">Green Schools</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">Partners</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Maryland Environmental Literacy Initiative. Advancing climate education for all.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Accessibility</a>
+                    <a href="https://marylandpublicschools.org">MSDE</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation scroll effect
+        const nav = document.querySelector('.nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile navigation toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile nav if open
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        // Counter animation
+        const countUpElements = document.querySelectorAll('.count-up');
+        
+        const animateCounter = (element) => {
+            const target = parseInt(element.dataset.target);
+            const duration = 2000;
+            const step = target / (duration / 16);
+            let current = 0;
+            
+            const updateCounter = () => {
+                current += step;
+                if (current < target) {
+                    element.textContent = Math.floor(current);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target;
+                }
+            };
+            
+            updateCounter();
+        };
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Animate counters
+                    if (entry.target.classList.contains('count-up')) {
+                        animateCounter(entry.target);
+                    }
+                    // Add animation class
+                    entry.target.classList.add('animated');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements
+        countUpElements.forEach(el => observer.observe(el));
+
+        // Animate progress bars on scroll
+        const progressFills = document.querySelectorAll('.progress-fill');
+        const progressObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.width = entry.target.style.width;
+                }
+            });
+        }, { threshold: 0.5 });
+
+        progressFills.forEach(fill => progressObserver.observe(fill));
+
+        // Domain card hover effects
+        document.querySelectorAll('.domain-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-8px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
+        });
+
+        // Console message
+        console.log('%c🌿 Maryland Environmental Literacy Initiative', 'font-size: 20px; font-weight: bold; color: #1e6091;');
+        console.log('%cFirst in the Nation since 2011', 'font-size: 14px; color: #1d7a3e;');
+    </script>
+</body>
+</html>
