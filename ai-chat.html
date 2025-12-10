@@ -629,17 +629,23 @@
             <div class="chat-wrapper">
                 <!-- Sidebar -->
                 <aside class="chat-sidebar">
-                    <div class="sidebar-title">Explore Topics</div>
+                    <div class="sidebar-title">Five Domains of Action</div>
                     <ul class="topic-list">
-                        <li><button class="topic-btn active" data-topic="intro">What is Local-First AI?</button></li>
-                        <li><button class="topic-btn" data-topic="collaborate">How Partners Collaborate</button></li>
-                        <li><button class="topic-btn" data-topic="resources">Finding Resources</button></li>
-                        <li><button class="topic-btn" data-topic="privacy">Data Privacy & Control</button></li>
+                        <li><button class="topic-btn active" data-topic="intro">About Maryland OLP</button></li>
+                        <li><button class="topic-btn" data-topic="access-nature">Access to Nature</button></li>
+                        <li><button class="topic-btn" data-topic="green-careers">College & Green Careers</button></li>
+                        <li><button class="topic-btn" data-topic="networks">Networks</button></li>
+                        <li><button class="topic-btn" data-topic="sustainability">School Sustainability</button></li>
+                        <li><button class="topic-btn" data-topic="climate-literacy">Environmental & Climate Literacy</button></li>
+                    </ul>
+                    <div class="sidebar-title" style="margin-top: 1.5rem;">AI Features</div>
+                    <ul class="topic-list">
+                        <li><button class="topic-btn" data-topic="local-ai">Local-First AI</button></li>
                         <li><button class="topic-btn" data-topic="getting-started">Getting Started</button></li>
                     </ul>
                     <div class="sidebar-info">
-                        <h4>About This Demo</h4>
-                        <p>This is a simulated conversation showing how AI assistants could help environmental education partners work together while keeping data local and private.</p>
+                        <h4>Try Asking</h4>
+                        <p>Type questions about MWEE, green schools, CTE pathways, funding, or contact info. The AI will search our knowledge base!</p>
                     </div>
                 </aside>
 
@@ -676,30 +682,28 @@
         </div>
     </section>
 
-    <!-- Vision Section -->
+    <!-- Five Domains Section -->
     <section class="vision-section">
         <div class="container">
-            <div class="vision-grid">
+            <h2 style="text-align: center; margin-bottom: 2rem; color: var(--bay-blue);">Five Domains of Action</h2>
+            <div class="vision-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
                 <div class="vision-card">
                     <div class="vision-card-icon">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                         </svg>
                     </div>
-                    <h3>Privacy-First Design</h3>
-                    <p>Your data stays with you. Local-first AI means partners maintain control over their information while still benefiting from intelligent assistance.</p>
+                    <h3>Access to Nature</h3>
+                    <p>Ensuring all students have equitable access to outdoor learning experiences across Maryland's 24 counties.</p>
                 </div>
                 <div class="vision-card">
                     <div class="vision-card-icon">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
-                            <line x1="9" y1="9" x2="9.01" y2="9"/>
-                            <line x1="15" y1="9" x2="15.01" y2="9"/>
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
                         </svg>
                     </div>
-                    <h3>Ubiquitous Collaboration</h3>
-                    <p>AI assistants help match partners with complementary resources, identify collaboration opportunities, and streamline communication across Maryland's 24 counties.</p>
+                    <h3>College & Green Careers</h3>
+                    <p>Preparing students for success in the growing green workforce through CTE pathways and career guidance.</p>
                 </div>
                 <div class="vision-card">
                     <div class="vision-card-icon">
@@ -710,8 +714,28 @@
                             <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
                         </svg>
                     </div>
-                    <h3>Partner Network</h3>
-                    <p>Connect schools, nonprofits, government agencies, and community organizations to share resources and amplify environmental education impact statewide.</p>
+                    <h3>Networks</h3>
+                    <p>Building and strengthening environmental literacy networks and regional hubs throughout Maryland.</p>
+                </div>
+                <div class="vision-card">
+                    <div class="vision-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                    </div>
+                    <h3>School Sustainability</h3>
+                    <p>Reducing environmental impact of school buildings and grounds while creating learning opportunities.</p>
+                </div>
+                <div class="vision-card">
+                    <div class="vision-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                        </svg>
+                    </div>
+                    <h3>Environmental & Climate Literacy</h3>
+                    <p>Advancing education standards and teacher preparation for environmental literacy.</p>
                 </div>
             </div>
         </div>
@@ -732,45 +756,66 @@
     </footer>
 
     <script>
-        // Chat conversation data
+        // Backend API URL (change when deployed)
+        const API_URL = 'http://localhost:5000';
+
+        // Chat conversation data - organized by Five Domains
         const conversations = {
             intro: [
-                { role: 'ai', text: "Welcome! I'm here to show you how local-first AI can transform collaboration for environmental education in Maryland." },
-                { role: 'ai', text: "**Local-first AI** means the intelligence runs on your own devices or within your organization's infrastructure - not on distant cloud servers controlled by big tech companies." },
-                { role: 'user', text: "Why does that matter for educators?" },
-                { role: 'ai', text: "Great question! It matters for three key reasons:\n\n**1. Privacy**: Student data, curriculum materials, and partner information stay under your control.\n\n**2. Reliability**: Works offline or with poor internet - critical for outdoor learning sites!\n\n**3. Customization**: AI assistants can be trained on Maryland-specific resources, standards, and local knowledge." },
-                { role: 'ai', text: "Imagine an AI assistant that knows every MWEE site in Maryland, understands our environmental literacy standards, and can help match teachers with the perfect resources - all without sending data to external servers." }
+                { role: 'ai', text: "Welcome to the Maryland Outdoor Learning Partnership AI Assistant!" },
+                { role: 'ai', text: "The **Maryland OLP** was established by Executive Order 01.01.2024.15 to ensure every young person in Maryland is empowered to access, conserve, and restore natural resources while preparing for a climate-ready future." },
+                { role: 'ai', text: "Maryland was the **first state in the nation** to require environmental literacy for graduation (since 2011)." },
+                { role: 'user', text: "What are the five domains?" },
+                { role: 'ai', text: "OLP organizes its work around **five domains of action**:\n\n**1. Access to Nature** - Ensuring all students have equitable access to outdoor learning\n\n**2. College and Green Careers** - Preparing students for success in the growing green workforce\n\n**3. Networks** - Building environmental literacy networks across Maryland\n\n**4. School Sustainability** - Reducing environmental impact of school buildings and grounds\n\n**5. Environmental and Climate Literacy** - Advancing education standards and teacher preparation" },
+                { role: 'ai', text: "Click on any domain in the sidebar to learn more, or type a question below!" }
             ],
-            collaborate: [
-                { role: 'ai', text: "Let me show you how local-first AI enables seamless partner collaboration across Maryland." },
-                { role: 'user', text: "How would this work in practice?" },
-                { role: 'ai', text: "Here's a real scenario:\n\n**Anne Arundel County teacher** needs a guest speaker on Bay restoration for 5th graders.\n\n**The AI assistant** searches the local partner database and finds:\n- Chesapeake Bay Foundation has availability next month\n- A NOAA scientist in Annapolis offered classroom visits\n- A local waterman runs educational boat tours" },
-                { role: 'ai', text: "The AI can even draft outreach emails, suggest curriculum connections, and help schedule - all while keeping partner contact info within the Maryland OLP network." },
-                { role: 'user', text: "What about sharing resources between districts?" },
-                { role: 'ai', text: "That's where it gets powerful! Each district can maintain their own AI assistant with local resources, but they can **federate** - sharing anonymized patterns and recommendations.\n\nFor example:\n- \"Districts using this watershed curriculum saw 40% more student engagement\"\n- \"Three Western Maryland schools found success with this virtual field trip for snow days\"\n\nNo raw data leaves any district, but everyone benefits from collective intelligence." }
+            'access-nature': [
+                { role: 'ai', text: "**Access to Nature** is one of OLP's five domains of action." },
+                { role: 'ai', text: "This domain focuses on ensuring all Maryland students have equitable access to outdoor learning experiences, regardless of location or resources." },
+                { role: 'user', text: "What actions are being taken?" },
+                { role: 'ai', text: "**Current Actions:**\n- Complete Landscape Assessment & Visual Map of Outdoor Learning Assets & Partners in Maryland\n\n**Recommendations:**\n- Create Mechanisms for Statewide Needs Monitoring with Data Collection & Analysis\n- Formally Implement 'Outdoor Learning for All' in Maryland" },
+                { role: 'ai', text: "The visual map will empower schools and providers to connect more efficiently. Identifying spatial access gaps will help equitably allocate resources across Maryland's 24 counties." }
             ],
-            resources: [
-                { role: 'ai', text: "Finding the right environmental education resource can be overwhelming. Local-first AI makes it personal and contextual." },
-                { role: 'user', text: "I need climate curriculum for middle schoolers" },
-                { role: 'ai', text: "I found several resources matching your needs:\n\n**1. Project Drawdown in the Classroom** (Free)\n- Grade 6-8 aligned\n- 10 lesson units on climate solutions\n- Matches MD Science Standard 6-ESS3-5\n\n**2. NOAA Climate Stewards Toolkit**\n- Local Chesapeake data integration\n- Student action projects included\n\n**3. Alliance for the Chesapeake Bay - Meaningful Watershed Unit**\n- MWEE-certified\n- Field experience included" },
-                { role: 'user', text: "Which one works best for urban schools?" },
-                { role: 'ai', text: "For urban settings, I'd recommend **Project Drawdown** because:\n\n- Flexible for limited outdoor access\n- Urban heat island and green infrastructure lessons\n- Baltimore teachers rated it 4.8/5 for relevance\n\nI can also connect you with a teacher at Patterson Park Middle who implemented it successfully - they offered to mentor other urban educators." }
+            'green-careers': [
+                { role: 'ai', text: "**College and Green Careers** prepares Maryland students for success in the growing green economy." },
+                { role: 'user', text: "What initiatives are underway?" },
+                { role: 'ai', text: "**Current Actions:**\n- Develop a local AI search and modeling program for Maryland-specific learning tools\n- Revise or develop a new Conservation Careers Guide\n\n**Recommendations:**\n- Develop a new CTE pathway for 'Environmental Management, Sustainability and Technology'\n- Maryland moves to adopt 4 science credits for graduation" },
+                { role: 'ai', text: "Model programs exist at **Western School of Environmental Science and Technology** (Baltimore County) with certificates in:\n- Erosion & Sediment Control (MDE)\n- EPA Watershed Academy\n- GIS Certification (ESRI)" },
+                { role: 'ai', text: "The new CTE pathway would connect students to careers in the **Green, Blue Economy, and Carbon Circular Economy** through apprenticeships and industry partnerships." }
             ],
-            privacy: [
-                { role: 'ai', text: "Data privacy is foundational to local-first AI. Let me explain how it protects Maryland educators and students." },
-                { role: 'user', text: "Where does my data actually go?" },
-                { role: 'ai', text: "With local-first architecture:\n\n**Your data stays with you:**\n- Student information never leaves your school\n- Curriculum materials remain on your devices\n- Conversation history is stored locally\n\n**What CAN be shared (with your permission):**\n- Anonymized usage patterns\n- Resource ratings and reviews\n- General collaboration requests" },
-                { role: 'ai', text: "Think of it like this: the AI learns from patterns across the network without ever seeing individual data. It's like knowing \"most teachers found this useful\" without knowing which teachers or which students." },
-                { role: 'user', text: "How is this different from ChatGPT or other AI tools?" },
+            'networks': [
+                { role: 'ai', text: "**Networks** is about building and strengthening environmental literacy connections across Maryland." },
+                { role: 'user', text: "What are the recommendations?" },
+                { role: 'ai', text: "**Key Recommendations:**\n\n1. Hire and onboard a qualified **Environmental Literacy Specialist** at MSDE before end of 2025-2026 school year\n\n2. Strengthen **regional environmental literacy network hubs** throughout Maryland" },
+                { role: 'ai', text: "Strong networks help coordinate resources, share best practices, and ensure environmental education is equitably implemented and sustainably funded statewide." }
+            ],
+            'sustainability': [
+                { role: 'ai', text: "**School Sustainability** supports Local Education Agencies in reducing environmental impact." },
+                { role: 'user', text: "What does this include?" },
+                { role: 'ai', text: "This domain focuses on:\n\n- **Green building practices** and energy efficiency\n- **Waste reduction** and recycling programs\n- **Outdoor learning spaces** and school gardens\n- **Student-led sustainability** initiatives\n- Connection to **Maryland Green Schools** certification" },
+                { role: 'ai', text: "**Recommendation:** Increase sustainable schools in Maryland\n\nLocal Education Agencies work to lessen environmental impact on local watersheds while creating hands-on learning opportunities for students." }
+            ],
+            'climate-literacy': [
+                { role: 'ai', text: "**Environmental and Climate Literacy** advances education standards and teacher preparation." },
+                { role: 'user', text: "What actions are being taken?" },
+                { role: 'ai', text: "**Current Actions:**\n- Investigate alignment between Community Schools Program and environmental literacy\n- **Define a Climate Literate Student** in Maryland\n\n**Recommendations:**\n- Update the *Environmental Education in Maryland Public School* (2010) document\n- Strengthen Environmental Literacy in Maryland teacher preparation programs" },
+                { role: 'ai', text: "This domain ensures all Maryland teachers have the training and support to implement environmental literacy standards, including the Next Generation Science Standards, Maryland Health Education Standards, and Social Studies Standards." }
+            ],
+            'local-ai': [
+                { role: 'ai', text: "**Local-first AI** means intelligence runs on your own devices or within your organization's infrastructure." },
+                { role: 'user', text: "Why does that matter?" },
+                { role: 'ai', text: "It matters for three key reasons:\n\n**1. Privacy**: Student data, curriculum materials, and partner information stay under your control.\n\n**2. Reliability**: Works offline or with poor internet - critical for outdoor learning sites!\n\n**3. Customization**: AI assistants trained on Maryland-specific resources, standards, and local knowledge." },
+                { role: 'ai', text: "**This is an OLP Action Item!**\n\nThe College and Green Careers working group is developing a local AI search and modeling program to house environmental literacy and green careers resources as a 'one stop shop' for Maryland educators." },
+                { role: 'user', text: "How is this different from ChatGPT?" },
                 { role: 'ai', text: "**Cloud AI (ChatGPT, etc.):**\n- Your prompts sent to external servers\n- Data used to train their models\n- Requires internet connection\n- Generic, not Maryland-specific\n\n**Local-First AI:**\n- Runs on your infrastructure\n- Data never leaves your control\n- Works offline\n- Trained on Maryland resources & standards\n- FERPA/COPPA compliant by design" }
             ],
             'getting-started': [
-                { role: 'ai', text: "Ready to bring local-first AI to your organization? Here's how Maryland partners can get started." },
-                { role: 'user', text: "What do I need to begin?" },
-                { role: 'ai', text: "Getting started is simpler than you might think:\n\n**Phase 1: Explore**\n- Try this demo to understand the possibilities\n- Identify your collaboration pain points\n- Connect with Maryland OLP to express interest\n\n**Phase 2: Pilot**\n- Start with a simple use case (resource matching)\n- Test with a small group of partners\n- Gather feedback and iterate" },
-                { role: 'ai', text: "**Phase 3: Expand**\n- Roll out to more partners\n- Add custom training on your resources\n- Connect with other Maryland districts\n\nThe Maryland OLP team can help coordinate pilot programs and provide technical guidance." },
+                { role: 'ai', text: "Ready to get involved with Maryland OLP? Here's how to connect." },
                 { role: 'user', text: "Who should I contact?" },
-                { role: 'ai', text: "Reach out to the Maryland OLP team:\n\n**Olivia Wisner**\nolivia.wisner1@maryland.gov\n\n**Stephanie Tuckfield**\nstephanie.tuckfield1@maryland.gov\n\nThey're coordinating the local-first AI initiative and can connect you with pilot opportunities and partner organizations already exploring this approach." }
+                { role: 'ai', text: "Reach out to the Maryland OLP team:\n\n**Olivia Wisner**\nolivia.wisner1@maryland.gov\n\n**Stephanie Tuckfield**\nstephanie.tuckfield1@maryland.gov\n\nThey coordinate environmental literacy initiatives and can connect you with resources and partner organizations." },
+                { role: 'user', text: "What about CTE programs?" },
+                { role: 'ai', text: "For CTE Standards and career pathways:\n\n**Marquita Friday**\nDirector of Career Programs\nPhone: (410) 767-0183\nEmail: marquita.friday@maryland.gov\n\nCTE standards available at: marylandpublicschools.org/programs/pages/cte/standards.aspx" },
+                { role: 'ai', text: "**Ways to Get Involved:**\n\n1. Join a working group\n2. Share resources from your organization\n3. Participate in pilot programs\n4. Connect schools with outdoor learning sites\n5. Support teacher professional development" }
             ]
         };
 
@@ -871,20 +916,69 @@
             });
         });
 
-        chatSend.addEventListener('click', () => {
+        chatSend.addEventListener('click', async () => {
             const text = chatInput.value.trim();
             if (text) {
                 addMessage('user', text);
                 chatInput.value = '';
 
-                // Simulate AI response
+                // Show typing indicator
                 showTyping();
-                setTimeout(() => {
+
+                try {
+                    // Try backend API first
+                    const response = await fetch(`${API_URL}/api/chat`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ message: text })
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        hideTyping();
+                        addMessage('ai', data.answer);
+
+                        // Show related topics if available
+                        if (data.related && data.related.length > 0) {
+                            setTimeout(() => {
+                                addMessage('ai', `**Related topics:** ${data.related.join(', ')}`);
+                            }, 500);
+                        }
+                    } else {
+                        throw new Error('API error');
+                    }
+                } catch (error) {
+                    // Fallback to local FAQ search
                     hideTyping();
-                    addMessage('ai', "Thanks for your question! This is a demo, so I can't respond dynamically yet. But click the topics on the left to explore pre-built conversations about local-first AI collaboration. When this system is fully built, you'll be able to ask anything about Maryland environmental education resources and partner opportunities.");
-                }, 1000);
+                    const fallbackResponse = searchLocalFAQ(text);
+                    addMessage('ai', fallbackResponse);
+                }
             }
         });
+
+        // Local FAQ search fallback
+        function searchLocalFAQ(query) {
+            const q = query.toLowerCase();
+
+            // Simple keyword matching
+            const keywords = {
+                'mwee': "A **Meaningful Watershed Educational Experience (MWEE)** is a multi-stage learning experience that includes classroom instruction and outdoor field investigations focused on local environmental issues. Maryland requires all students to participate in a MWEE before graduation.",
+                'green school': "**Maryland Green Schools** is a certification program recognizing schools that demonstrate environmental best practices and integrate environmental education across the curriculum.",
+                'cte': "Maryland's **Career and Technical Education (CTE)** standards include environmental pathways like Agriculture Science, Renewable Energy, and the proposed 'Environmental Management, Sustainability and Technology' pathway. Learn more at marylandpublicschools.org/programs/pages/cte/standards.aspx",
+                'contact': "Contact Maryland OLP:\n\n**Olivia Wisner:** olivia.wisner1@maryland.gov\n**Stephanie Tuckfield:** stephanie.tuckfield1@maryland.gov",
+                'five domain': "OLP organizes its work around **five domains**:\n1. Access to Nature\n2. College and Green Careers\n3. Networks\n4. School Sustainability\n5. Environmental and Climate Literacy",
+                'funding': "Funding opportunities include **NOAA B-WET grants** for watershed education, **Chesapeake Bay Trust grants**, and **MAEOE mini-grants** for educators.",
+                'climate': "The **Environmental and Climate Literacy** domain focuses on defining a Climate Literate Student in Maryland and strengthening climate education in teacher preparation programs."
+            };
+
+            for (const [key, response] of Object.entries(keywords)) {
+                if (q.includes(key)) {
+                    return response;
+                }
+            }
+
+            return "I don't have specific information about that topic yet, but I'm learning! Try clicking one of the **Five Domains** in the sidebar, or ask about:\n\n- MWEE requirements\n- Green Schools certification\n- CTE pathways\n- Funding opportunities\n- Contact information\n\nOr reach out directly to **olivia.wisner1@maryland.gov** or **stephanie.tuckfield1@maryland.gov**";
+        }
 
         chatInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
