@@ -1,0 +1,26 @@
+# Documents - keep locally but don't commit
+*.docx
+*.pdf
+
+# Archives
+*.zip
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+
+# Environment
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
