@@ -1,7 +1,7 @@
 # Maryland OLP AI Chat - Local AI Setup Guide
 *Updated: December 10, 2025*
 
-## Your Hardware: M3 Pro with 36GB Unified Memory
+## Hardware: M3 Pro with 36GB Unified Memory
 
 **Excellent specs!** With 36GB unified memory, you can run:
 - Models up to ~30GB comfortably
