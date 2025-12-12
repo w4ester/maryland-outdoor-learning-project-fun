@@ -19,14 +19,16 @@
 ```
 olp-site-fun-maryland/
 ├── .git/                    # Git repository
-├── .gitignore               # [NEW] Root gitignore - ignores docs, python cruft
-├── BUILD-PLAN.md            # [NEW] This file - source of truth
+├── .gitignore               # Root gitignore - ignores docs, python cruft
+├── BUILD-PLAN.md            # This file - source of truth
+├── docker-compose.yml       # [NEW] Container orchestration
 │
 ├── index.html               # [CORE] Main landing page (~2270 lines)
 ├── ai-chat.html             # [CORE] AI chat interface (~1195 lines)
 ├── resources.html           # [CORE] Resources page (large file)
 │
 ├── backend/                 # [CORE] Python Flask API
+│   ├── Dockerfile           # [NEW] Container build instructions
 │   ├── .gitignore           # Backend-specific ignores
 │   ├── .env                 # [SECRET] Active environment config
 │   ├── .env.example         # Template for env vars
@@ -36,7 +38,6 @@ olp-site-fun-maryland/
 │   ├── README.md            # Backend documentation
 │   ├── LOCAL_AI_SETUP.md    # Local AI setup guide (detailed)
 │   ├── Modelfile            # [OPTIONAL] Ollama custom model config
-│   ├── __init__.py          # [UNNECESSARY] Created but not needed
 │   ├── __pycache__/         # [IGNORED] Python cache
 │   └── venv/                # [IGNORED] Virtual environment
 │
@@ -63,11 +64,10 @@ olp-site-fun-maryland/
 | `.gitignore` | Root ignore for docs, python, IDE files | Core |
 | `backend/.gitignore` | Backend-specific ignores | Core |
 
-### UNNECESSARY FILES (Remove)
+### OPTIONAL FILES
 
 | File | Reason |
 |------|--------|
-| `backend/__init__.py` | Backend is standalone Flask app, not a package import | Remove |
 | `backend/Modelfile` | Optional Ollama customization - not tracked | Optional |
 
 ### UNTRACKED (Intentionally Ignored)
@@ -101,6 +101,47 @@ olp-site-fun-maryland/
 - **Recommended model** - GPT-OSS 20B or Qwen3 30B for M3 Pro with 36GB RAM
 - **Fallback chain** - Ensures response even if local AI unavailable
 
+### Deployment Strategy
+- **Container isolation** - Backend runs in Docker for security
+- **Tailscale Funnel** - Secure tunnel to expose local container to internet
+- **Cold starts OK** - Not production yet, container can sleep when not in use
+- **Data stays local** - Your machine, your data, your control
+
+---
+
+## CONTAINER SETUP
+
+### Quick Start
+```bash
+# Build and run
+docker compose up -d
+
+# Check status
+docker ps
+
+# View logs
+docker logs olp-backend
+
+# Stop
+docker compose down
+```
+
+### Container Details
+- **Image:** `olp-site-fun-maryland-backend`
+- **Container:** `olp-backend`
+- **Port:** 5000
+- **User:** Non-root `olp` user (security)
+- **Host access:** Can reach host Ollama via `host.docker.internal:11434`
+
+### Connecting to Host Ollama
+If running Ollama on your Mac (not in container):
+```bash
+# Start Ollama on host
+ollama serve
+
+# Container can reach it at http://host.docker.internal:11434
+```
+
 ---
 
 ## GIT CONFIGURATION
@@ -124,32 +165,46 @@ olp-site-fun-maryland/
 
 ## SESSION LOG
 
-### Session: 2025-12-12 (Current)
+### Session: 2025-12-12
 
-**Objective:** Audit project structure, establish source of truth
+**Objective:** Audit project structure, establish source of truth, containerize backend
 
 **Actions Taken:**
 1. Reviewed full project structure
 2. Read all core files to understand architecture
 3. Created root `.gitignore` to ignore working documents
-4. Created `backend/__init__.py` (then identified as unnecessary)
-5. Created this `BUILD-PLAN.md` as living documentation
+4. Created `BUILD-PLAN.md` as living documentation
+5. Discovered existing `maryland-ai` project at `/Users/willf/00_maryland-ai-starter/maryland-ai/` (more complex, has RAG/auth)
+6. Decided to keep projects separate - OLP is simple public FAQ, maryland-ai is internal tools
+7. Created `backend/Dockerfile` for container isolation
+8. Created `docker-compose.yml` for easy startup
+9. Built and tested container - working on port 5000
 
 **Decisions Made:**
-- `backend/__init__.py` is NOT needed (backend runs as standalone Flask app)
-- Working documents (.docx, .pdf) should stay local, not in git
-- Root `.gitignore` created to handle this
+- Keep OLP simple and separate from maryland-ai stack
+- Use Docker container for backend isolation (security)
+- Plan to use Tailscale Funnel for secure public access
+- Cold starts acceptable (not production yet)
+- Data stays local on your machine
 
 **Files Changed:**
 - `[NEW] .gitignore` - Root level ignore file
-- `[NEW] backend/__init__.py` - Created but marked for removal
 - `[NEW] BUILD-PLAN.md` - This file
+- `[NEW] backend/Dockerfile` - Container build instructions
+- `[NEW] docker-compose.yml` - Container orchestration
+
+**Container Status:**
+- Image: `olp-site-fun-maryland-backend` (built)
+- Container: `olp-backend` (running)
+- Port: 5000
+- Test: `curl http://localhost:5000/` returns healthy
 
 **Next Steps:**
-- [ ] Remove `backend/__init__.py`
-- [ ] Commit changes with descriptive message
+- [ ] Install Tailscale: `brew install tailscale`
+- [ ] Configure Tailscale Funnel to expose port 5000
+- [ ] Update `ai-chat.html` API_URL with Tailscale domain
+- [ ] Test end-to-end with frontend on GitHub Pages
 - [ ] Consider: consolidate duplicate CSS across HTML files?
-- [ ] Consider: extract shared nav/footer as includes?
 
 ---
 
@@ -167,8 +222,9 @@ olp-site-fun-maryland/
    - Could use JS includes or build step
    - Trade-off: Zero-dependency vs. DRY
 
-3. **Backend Deployment**
-   - Currently designed for Railway/Render/Vercel
+3. **Backend Deployment** (DECIDED)
+   - Using Docker + Tailscale Funnel for local-first deployment
+   - Container runs on your Mac, Tailscale exposes it securely
    - May need CORS config updates for production domain
 
 4. **Document Management**

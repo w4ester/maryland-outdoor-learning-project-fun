@@ -1,0 +1,16 @@
+# OLP Site - Simple Docker Setup
+# Start: docker compose up
+# Stop:  docker compose down
+
+services:
+  backend:
+    build: ./backend
+    container_name: olp-backend
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./backend/.env
+    restart: unless-stopped
+    # Connect to host Ollama if running locally
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
